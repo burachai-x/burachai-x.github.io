@@ -222,8 +222,8 @@
   /* ---------- Work / case study ---------- */
   .work-grid { margin-bottom: 34px; }
   .work-grid .feat { max-width: 76ch; }
-  .shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  @media (max-width: 820px) { .shots { grid-template-columns: 1fr; } }
+  /* one wide column — these are dense ERP tables, two-up renders them unreadable */
+  .shots { display: grid; grid-template-columns: 1fr; gap: 36px; max-width: 900px; }
   .shot-card { margin: 0; min-width: 0; }
   .shot-card img {
     width: 100%; border-radius: 12px; border: 1px solid var(--border);
