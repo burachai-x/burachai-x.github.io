@@ -224,6 +224,7 @@
   .case:last-of-type { margin-bottom: 0; }
   .case-title { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 700; letter-spacing: -.015em; margin: 0 0 10px; }
   .case-sub { color: var(--muted); max-width: 68ch; margin: 0 0 26px; }
+  .case-sub-title { font-size: 1.1rem; font-weight: 600; margin: 44px 0 8px; letter-spacing: -.01em; }
   .work-grid { margin-bottom: 34px; }
   .work-grid .feat { max-width: 76ch; }
   /* one wide column — these are dense ERP tables, two-up renders them unreadable */
@@ -449,6 +450,12 @@
         </div>
 
         <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 13h.01M15 13h.01M2 12h2M20 12h2"/></svg></div>
+          <h3>ต่อ AI เข้ากับระบบงาน</h3>
+          <p>เชื่อม LLM เข้ากับข้อมูลขององค์กรด้วย RAG และ MCP คุมต้นทุน ตรวจสอบย้อนหลังได้ และกันข้อมูลส่วนบุคคลตาม PDPA</p>
+        </div>
+
+        <div class="card reveal">
           <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></div>
           <h3>Odoo ERP &amp; ระบบธุรกิจ</h3>
           <p>พัฒนาโมดูลเฉพาะทาง ปรับกระบวนการให้ตรงกับการทำงานจริง และเชื่อมข้อมูลข้ามระบบ</p>
@@ -532,7 +539,7 @@
             <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>วางแผนและติดตามงาน</strong> — เป้าหมายและผลลัพธ์ (OKR), คัมบัง, แผนภูมิแกนต์, ปฏิทิน, การประชุม, ความต้องการของระบบ และภาระงานรายคน</span></li>
             <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>คลังความรู้ในตัว</strong> — เอกสาร โน้ต บุ๊กมาร์ก รีไมนเดอร์ และงานตามกำหนดเวลา</span></li>
             <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ระบบเรียนรู้ของทีม</strong> — คอร์สเรียนและการฝึกอบรม พร้อมรายงานความคืบหน้า</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>เครื่องมือ AI ที่ควบคุมได้</strong> — ตั้งค่าและกำหนดข้อจำกัดการใช้งาน, ค้นหาเว็บ, MCP Servers, Agent Tools, Embedding, บันทึกการค้นแบบ RAG พร้อม<strong>ประวัติและต้นทุนการใช้ AI</strong></span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>เครื่องมือ AI ที่ควบคุมได้</strong> — ต่อ MCP Servers และ Agent Tools, ค้นหาเว็บ, Embedding และ RAG พร้อม<strong>กันข้อมูลส่วนบุคคลตาม PDPA ก่อนส่งออกไปหาโมเดล</strong> และดูประวัติกับต้นทุนการใช้งานได้ทุกคำขอ</span></li>
             <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>งานผู้ดูแลระบบ</strong> — จัดการผู้ใช้ ตั้งค่าอีเมล เข้าสู่ระบบด้วย Google และการเชื่อมต่อกับบริการอื่น</span></li>
           </ul>
         </div>
@@ -553,6 +560,31 @@
           <figure class="shot-card reveal">
             <img src="assets/work/devtrack-workload.webp" width="1200" height="722" loading="lazy" alt="หน้าภาระงานทีม แสดงการกระจายงานของสมาชิกแต่ละคน">
             <figcaption>ภาระงานทีม — เห็นว่างานกระจุกอยู่ที่ใคร ก่อนที่งานจะดีเลย์</figcaption>
+          </figure>
+        </div>
+
+        <h4 class="case-sub-title">ฝั่ง AI ของระบบ</h4>
+        <p class="case-sub">
+          เรารับงานที่ต้องต่อ AI เข้ากับระบบธุรกิจจริง — ไม่ใช่แค่แปะแชตบอต
+          แต่รวมถึงการคุมค่าใช้จ่าย ตรวจสอบย้อนหลังได้ และกันข้อมูลส่วนบุคคลไม่ให้หลุดออกไปกับคำขอ
+        </p>
+
+        <div class="shots">
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-ai-guardrails.webp" width="1200" height="583" loading="lazy" alt="หน้า AI Guardrails แสดงกฎ PDPA สำหรับบล็อกและปิดบังข้อมูลส่วนบุคคล">
+            <figcaption>AI Guardrails — กฎ PDPA ในตัวสำหรับ<strong>เลขบัตรประชาชน อีเมล เบอร์โทร และชื่อบุคคล</strong> เลือกได้ว่าจะบล็อกหรือปิดบังก่อนส่งให้โมเดล พร้อมโหมดแทนชื่อผู้ใช้ด้วย token แล้วแปลงกลับในคำตอบ</figcaption>
+          </figure>
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-ai-cost.webp" width="1200" height="583" loading="lazy" alt="แดชบอร์ดต้นทุน AI แสดงค่าใช้จ่ายประมาณการรายเดือนและจำนวน token">
+            <figcaption>ต้นทุน AI — ประมาณค่าใช้จ่ายจาก token × ราคาจริงของแต่ละโมเดล แปลงเป็นเงินบาทตามอัตราแลกเปลี่ยน แยกดูตามโมเดลและตามผู้ใช้ได้</figcaption>
+          </figure>
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-ai-usage.webp" width="1200" height="583" loading="lazy" alt="หน้าประวัติการใช้ AI แสดงจำนวนครั้ง โมเดลที่ใช้ และจำนวน token">
+            <figcaption>ประวัติการใช้ AI — เก็บทุกคำขอย้อนหลัง แยกตามโมเดลและสถานะ พร้อมจำนวน token เข้า-ออกและเวลาตอบสนอง</figcaption>
+          </figure>
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-mcp.webp" width="1200" height="583" loading="lazy" alt="หน้าจัดการ MCP Servers แสดงเซิร์ฟเวอร์ที่เชื่อมต่อและจำนวนเครื่องมือ">
+            <figcaption>MCP Servers — ต่อเครื่องมือภายนอกเข้ากับผู้ช่วย AI เปิด/ปิดรายตัวได้ และเห็นว่าแต่ละเซิร์ฟเวอร์ให้เครื่องมือมากี่ตัว</figcaption>
           </figure>
         </div>
       </article>
