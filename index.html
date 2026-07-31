@@ -158,6 +158,8 @@
 
   /* ---------- Product rows ---------- */
   .product { display: grid; grid-template-columns: .95fr 1.05fr; gap: 48px; align-items: center; margin-bottom: 72px; }
+  /* without this the scrolling gallery refuses to shrink and squeezes the text column */
+  .product > * { min-width: 0; }
   .product:last-of-type { margin-bottom: 0; }
   .product.flip .product-media { order: 2; }
   @media (max-width: 880px) {
