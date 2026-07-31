@@ -316,6 +316,10 @@ table.scope { border-collapse: collapse; width: 100%; min-width: 560px; font-siz
 table.scope th, table.scope td { text-align: start; padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
 table.scope thead th { font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-weight: 700; background: var(--bg-soft); }
 table.scope tbody tr:last-child td { border-bottom: 0; }
+/* the first column is a short label — without a floor it gets squeezed to one
+   word per line while the description column hogs the width */
+table.scope td:first-child, table.scope th:first-child { min-width: 9.5em; }
+table.scope td:last-child, table.scope th:last-child { min-width: 7em; }
 table.scope td strong { font-weight: 600; }
 table.scope td.muted { color: var(--muted); }
 
