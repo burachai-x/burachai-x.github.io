@@ -124,7 +124,7 @@
   h1 {
     font-size: clamp(2.05rem, 5.2vw, 3.1rem);
     line-height: 1.24; letter-spacing: -.02em; font-weight: 700;
-    margin: 20px 0 16px;
+    margin: 20px 0 16px; text-wrap: balance;
   }
   h1 .grad {
     background: linear-gradient(100deg, var(--brand), var(--brand-2));
@@ -242,7 +242,7 @@
   .foot a:hover { color: var(--brand); }
 
   /* ---------- Reveal ---------- */
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity .38s ease, transform .38s ease; }
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 </style>
@@ -463,11 +463,11 @@
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (!e.isIntersecting) return;
-        e.target.style.transitionDelay = (i * 55) + 'ms';
+        e.target.style.transitionDelay = Math.min(i * 35, 175) + 'ms';
         e.target.classList.add('in');
         io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -12% 0px' });
+    }, { rootMargin: '0px 0px 5% 0px' });
     items.forEach(el => io.observe(el));
   } else {
     items.forEach(el => el.classList.add('in'));
