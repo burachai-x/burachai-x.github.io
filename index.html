@@ -220,6 +220,10 @@
   .icon svg { width: 20px; height: 20px; stroke: var(--brand); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ---------- Work / case study ---------- */
+  .case { margin-bottom: 72px; }
+  .case:last-of-type { margin-bottom: 0; }
+  .case-title { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 700; letter-spacing: -.015em; margin: 0 0 10px; }
+  .case-sub { color: var(--muted); max-width: 68ch; margin: 0 0 26px; }
   .work-grid { margin-bottom: 34px; }
   .work-grid .feat { max-width: 76ch; }
   /* one wide column — these are dense ERP tables, two-up renders them unreadable */
@@ -469,8 +473,15 @@
   <section id="work" class="alt">
     <div class="wrap">
       <p class="eyebrow">ผลงาน</p>
-      <h2>ระบบซิงค์ข้อมูลสาขา → สำนักงานใหญ่ บน Odoo</h2>
+      <h2>ระบบที่เราสร้างให้ลูกค้า และที่เราใช้เองจริง</h2>
       <p class="sec-lede">
+        งานที่ไม่ได้จบแค่หน้าจอสวย — ทั้งสองระบบนี้ทำงานอยู่จริง มีคนใช้ทุกวัน
+        และต้องรับมือกับข้อมูลที่ส่งพลาด งานที่ค้าง และการตามแก้เมื่อมีอะไรผิดพลาด
+      </p>
+
+      <article class="case">
+      <h3 class="case-title">ระบบซิงค์ข้อมูลสาขา → สำนักงานใหญ่ บน Odoo</h3>
+      <p class="case-sub">
         องค์กรที่มีสาขาจำนวนมาก โดยสาขาใช้ Odoo Community ส่วนสำนักงานใหญ่ใช้ Odoo Enterprise
         เราพัฒนาโมดูลสองฝั่งให้ส่งข้อมูลหากันผ่าน REST API พร้อมระบบคิว การลองใหม่ และหน้าจอติดตามสถานะ
       </p>
@@ -507,10 +518,48 @@
           <figcaption>สำนักงานใหญ่ — คิวงานประมวลผล พร้อมเวลาที่ใช้จริงของแต่ละงาน</figcaption>
         </figure>
       </div>
+      </article>
+
+      <article class="case">
+        <h3 class="case-title">DevTrack — ระบบบริหารงานพัฒนาซอฟต์แวร์</h3>
+        <p class="case-sub">
+          ระบบที่เราสร้างขึ้นใช้บริหารงานพัฒนาของตัวเอง รวมการวางแผน ติดตามงาน เก็บความรู้
+          และเครื่องมือ AI ไว้ในที่เดียว ใช้งานได้ทั้งภาษาไทยและอังกฤษ
+        </p>
+
+        <div class="work-grid">
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>วางแผนและติดตามงาน</strong> — เป้าหมายและผลลัพธ์ (OKR), คัมบัง, แผนภูมิแกนต์, ปฏิทิน, การประชุม, ความต้องการของระบบ และภาระงานรายคน</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>คลังความรู้ในตัว</strong> — เอกสาร โน้ต บุ๊กมาร์ก รีไมนเดอร์ และงานตามกำหนดเวลา</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ระบบเรียนรู้ของทีม</strong> — คอร์สเรียนและการฝึกอบรม พร้อมรายงานความคืบหน้า</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>เครื่องมือ AI ที่ควบคุมได้</strong> — ตั้งค่าและกำหนดข้อจำกัดการใช้งาน, ค้นหาเว็บ, MCP Servers, Agent Tools, Embedding, บันทึกการค้นแบบ RAG พร้อม<strong>ประวัติและต้นทุนการใช้ AI</strong></span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>งานผู้ดูแลระบบ</strong> — จัดการผู้ใช้ ตั้งค่าอีเมล เข้าสู่ระบบด้วย Google และการเชื่อมต่อกับบริการอื่น</span></li>
+          </ul>
+        </div>
+
+        <div class="shots">
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-dashboard.webp" width="1200" height="583" loading="lazy" alt="แดชบอร์ดของ DevTrack แสดงจำนวนโครงการ งาน และคำขอที่รอดำเนินการ">
+            <figcaption>แดชบอร์ด — สรุปโครงการที่ใช้งาน งานคงค้าง คำขอที่รอดำเนินการ และความคืบหน้า OKR</figcaption>
+          </figure>
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-okr.webp" width="1200" height="722" loading="lazy" alt="หน้าเป้าหมายและผลลัพธ์ แสดงความคืบหน้าของแต่ละเป้าหมาย">
+            <figcaption>เป้าหมายและผลลัพธ์ (OKR) — ผูกผลลัพธ์ที่วัดได้เข้ากับเป้าหมาย และเห็นความคืบหน้าเฉลี่ยทันที</figcaption>
+          </figure>
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-kanban.webp" width="1200" height="583" loading="lazy" alt="กระดานคัมบังแบ่งตามสถานะของงาน">
+            <figcaption>คัมบังบอร์ด — ลากงานข้ามสถานะ พร้อมระดับความสำคัญและกำหนดส่ง</figcaption>
+          </figure>
+          <figure class="shot-card reveal">
+            <img src="assets/work/devtrack-workload.webp" width="1200" height="722" loading="lazy" alt="หน้าภาระงานทีม แสดงการกระจายงานของสมาชิกแต่ละคน">
+            <figcaption>ภาระงานทีม — เห็นว่างานกระจุกอยู่ที่ใคร ก่อนที่งานจะดีเลย์</figcaption>
+          </figure>
+        </div>
+      </article>
 
       <p class="note" style="margin-top:26px">
-        ภาพทั้งหมดมาจากระบบทดสอบ (UAT) และปิดข้อมูลที่ระบุตัวตนออกแล้ว —
-        ชื่อบริษัท ชื่อสาขาจริง อีเมล และที่อยู่ปลายทางของ API ถูกแทนด้วยข้อมูลตัวอย่าง
+        ภาพทั้งหมดปิดข้อมูลที่ระบุตัวตนออกแล้ว — ชื่อบริษัท ชื่อสาขาจริง ชื่อบุคคล รูปโปรไฟล์
+        อีเมล ชื่อโครงการ และที่อยู่ปลายทางของ API ถูกแทนด้วยข้อมูลตัวอย่างทั้งหมด
       </p>
     </div>
   </section>
