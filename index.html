@@ -528,16 +528,32 @@
     });
   });
 
+  // execCommand still covers the cases the async clipboard API refuses
+  function legacyCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch { ok = false; }
+    ta.remove();
+    return ok;
+  }
+
   const status = document.querySelector('.copied');
   document.querySelectorAll('.js-copy').forEach(el => {
     el.addEventListener('click', async () => {
+      let ok = false;
       try {
         await navigator.clipboard.writeText(addr);
-        status.textContent = 'คัดลอกอีเมลแล้ว';
+        ok = true;
       } catch {
-        status.textContent = 'คัดลอกไม่สำเร็จ — กดปุ่มอีเมลด้านบนแทนได้';
+        ok = legacyCopy(addr);
       }
-      setTimeout(() => { status.textContent = ''; }, 3000);
+      status.textContent = ok ? 'คัดลอกอีเมลแล้ว' : 'คัดลอกไม่สำเร็จ — กดปุ่มอีเมลด้านบนแทนได้';
+      setTimeout(() => { status.textContent = ''; }, 4000);
     });
   });
 
