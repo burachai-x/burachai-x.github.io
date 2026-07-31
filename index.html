@@ -256,7 +256,9 @@
   }
   .mail-box:hover { border-color: var(--brand); transform: translateY(-2px); }
   .mail-box svg { width: 21px; height: 21px; stroke: var(--brand); fill: none; stroke-width: 1.8; flex: none; }
-  .mail-img { width: auto; max-width: 100%; height: auto; }
+  /* no `width` here on purpose — the HTML width attribute carries the 1x size,
+     while the file itself is rendered at 3x for high-DPI screens */
+  .mail-img { max-width: 100%; height: auto; }
   .mail-img.on-dark { display: none; }
   @media (prefers-color-scheme: dark) {
     .mail-img.on-light { display: none; }
