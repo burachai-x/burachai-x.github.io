@@ -242,23 +242,28 @@
   @media (max-width: 620px) { .contact-card { padding: 34px 20px; } }
   .contact-card p { color: var(--muted); max-width: 52ch; margin: 0 auto 26px; }
 
+  .mail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 780px) { .mail-grid { grid-template-columns: 1fr; gap: 26px; } }
+  .mail-block { display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; }
+  .mail-label { font-size: .85rem; font-weight: 600; color: var(--muted); margin: 0; }
+
   .mail-box {
-    display: inline-flex; align-items: center; gap: 12px;
-    padding: 13px 22px; border-radius: 13px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 12px; max-width: 100%; min-width: 0;
+    padding: 13px 20px; border-radius: 13px; cursor: pointer;
     background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow);
     font-family: inherit;
     transition: border-color .18s ease, transform .18s ease;
   }
   .mail-box:hover { border-color: var(--brand); transform: translateY(-2px); }
   .mail-box svg { width: 21px; height: 21px; stroke: var(--brand); fill: none; stroke-width: 1.8; flex: none; }
-  .mail-img { width: 262px; height: 25px; }
+  .mail-img { width: auto; max-width: 100%; height: auto; }
   .mail-img.on-dark { display: none; }
   @media (prefers-color-scheme: dark) {
     .mail-img.on-light { display: none; }
     .mail-img.on-dark { display: block; }
   }
-  .mail-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; margin-top: 16px; }
-  .mail-hint { font-size: .84rem; color: var(--muted); margin: 18px 0 0; }
+  .btn-sm { padding: 7px 14px; font-size: .87rem; }
+  .mail-hint { font-size: .84rem; color: var(--muted); margin: 20px 0 0; }
   .copied { font-size: .88rem; font-weight: 600; color: var(--brand); min-height: 1.4em; margin: 10px 0 0; }
 
   /* ---------- Footer ---------- */
@@ -481,20 +486,36 @@
         <h2>มีงานอยากให้ช่วย หรืออยากรู้ว่าแอปเปิดตัวเมื่อไหร่?</h2>
         <p>ส่งอีเมลมาคุยได้เลย บอกสั้นๆ ว่าอยากได้อะไร เราจะตอบกลับพร้อมแนวทางและราคาโดยประมาณ</p>
 
-        <button class="mail-box js-mail" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อส่งข้อความถึงเรา">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          <img class="mail-img on-light" src="assets/contact-light.png" width="262" height="25" alt="ที่อยู่อีเมลของเรา แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
-          <img class="mail-img on-dark" src="assets/contact-dark.png" width="262" height="25" alt="">
-        </button>
+        <div class="mail-grid">
+          <div class="mail-block">
+            <p class="mail-label">งานพัฒนาซอฟต์แวร์ / ติดต่อธุรกิจ</p>
+            <button class="mail-box js-mail" data-k="work" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อติดต่อเรื่องงานพัฒนาซอฟต์แวร์">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              <img class="mail-img on-light" src="assets/contact-work-light.png" width="361" height="23" alt="อีเมลสำหรับติดต่องาน แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
+              <img class="mail-img on-dark" src="assets/contact-work-dark.png" width="361" height="23" alt="">
+            </button>
+            <button class="btn btn-ghost btn-sm js-copy" data-k="work" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              คัดลอก
+            </button>
+          </div>
 
-        <div class="mail-actions">
-          <button class="btn btn-ghost js-copy" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-            คัดลอกอีเมล
-          </button>
+          <div class="mail-block">
+            <p class="mail-label">สอบถามเรื่องแอปของเรา</p>
+            <button class="mail-box js-mail" data-k="apps" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อสอบถามเรื่องแอป">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              <img class="mail-img on-light" src="assets/contact-apps-light.png" width="239" height="23" alt="อีเมลสำหรับสอบถามเรื่องแอป แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
+              <img class="mail-img on-dark" src="assets/contact-apps-dark.png" width="239" height="23" alt="">
+            </button>
+            <button class="btn btn-ghost btn-sm js-copy" data-k="apps" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              คัดลอก
+            </button>
+          </div>
         </div>
+
         <p class="copied" role="status" aria-live="polite"></p>
-        <p class="mail-hint">เราแสดงอีเมลเป็นรูปภาพเพื่อกันบอทเก็บที่อยู่ไปส่งสแปม — กดปุ่มด้านบนเพื่อเปิดโปรแกรมอีเมลหรือคัดลอกได้เลย</p>
+        <p class="mail-hint">เราแสดงอีเมลเป็นรูปภาพเพื่อกันบอทเก็บที่อยู่ไปส่งสแปม — กดที่อีเมลเพื่อเปิดโปรแกรมอีเมล หรือกดคัดลอกได้เลย</p>
       </div>
     </div>
   </section>
@@ -507,7 +528,7 @@
     <span class="spacer"></span>
     <a href="https://burachai-x.github.io/doovnow-privacy/">นโยบายความเป็นส่วนตัว DooVNow</a>
     <a href="https://github.com/burachai-x">GitHub</a>
-    <button class="linklike js-mail" type="button">อีเมล</button>
+    <button class="linklike js-mail" data-k="work" type="button">อีเมลติดต่องาน</button>
   </div>
 </footer>
 
@@ -516,12 +537,17 @@
 
   // The address never appears in the markup — assembled here so scrapers that
   // don't run scripts have nothing to harvest.
-  const addr = atob('cm9rb21hbkBnbWFpbC5jb20=');
-  const subject = encodeURIComponent('สอบถามงานพัฒนาซอฟต์แวร์');
+  const CONTACTS = {
+    work: { b: 'YnVyYWNoYWkucEBuZXRzb2Z0LWV4cGVydC5jb20=', s: 'สอบถามงานพัฒนาซอฟต์แวร์' },
+    apps: { b: 'cm9rb21hbkBnbWFpbC5jb20=',                 s: 'สอบถามเกี่ยวกับแอป' }
+  };
+  const addrOf = k => atob((CONTACTS[k] || CONTACTS.work).b);
 
   document.querySelectorAll('.js-mail').forEach(el => {
     el.addEventListener('click', () => {
-      window.location.href = 'mailto:' + addr + '?subject=' + subject;
+      const k = el.dataset.k || 'work';
+      window.location.href = 'mailto:' + addrOf(k) +
+        '?subject=' + encodeURIComponent(CONTACTS[k].s);
     });
   });
 
@@ -542,6 +568,7 @@
   const status = document.querySelector('.copied');
   document.querySelectorAll('.js-copy').forEach(el => {
     el.addEventListener('click', async () => {
+      const addr = addrOf(el.dataset.k);
       let ok = false;
       try {
         await navigator.clipboard.writeText(addr);
