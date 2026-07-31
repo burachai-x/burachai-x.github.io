@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ความปลอดภัย — ออกแบบระบบตาม Security by Design, PDPA และทดสอบเจาะระบบ | Netsoft Expert Studio</title>
+<meta name="description" content="ออกแบบเครือข่าย <span class="nb">โครงสร้างพื้นฐาน</span> และแอปพลิเคชันตามแนวคิด Security by Design รองรับ PDPA พร้อมบริการทดสอบเจาะระบบเว็บแอปพลิเคชัน API และแอปมือถือตามกรอบ OWASP WSTG, API Security Top 10 และ MASVS">
+<link rel="canonical" href="https://netsoft-expert.com/security/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ความปลอดภัย — Security by Design, PDPA และทดสอบเจาะระบบ">
+<meta property="og:description" content="ออกแบบให้ปลอดภัยตั้งแต่วันแรก แล้วพิสูจน์ด้วยการทดสอบเจาะระบบตามกรอบ OWASP">
+<meta property="og:url" content="https://netsoft-expert.com/security/">
+<meta name="theme-color" content="#4f46e5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<a class="skip" href="#top">ข้ามไปยังเนื้อหา</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="mark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      Netsoft Expert Studio
+    </a>
+    <span class="spacer"></span>
+    <nav class="nav-links" aria-label="เมนูหลัก">
+      <a href="/products/">ผลิตภัณฑ์</a>
+      <a href="/services/">บริการ</a>
+      <a href="/security/" aria-current="page">ความปลอดภัย</a>
+      <a href="/work/">ผลงาน</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">ติดต่อเรา</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">หน้าหลัก</a><span>/</span>ความปลอดภัย</p>
+      <span class="badge"><span class="dot"></span> Security by Design · PDPA · Penetration Testing</span>
+      <h1>ออกแบบให้ปลอดภัย<span class="nb">ตั้งแต่วันแรก</span> แล้วพิสูจน์ด้วยการทดสอบจริง</h1>
+      <p class="lede">
+        ความปลอดภัยที่มาแปะทีหลังมักได้แค่ผลสแกนกองหนึ่งกับงานแก้ที่ไม่มีวันจบ
+        เราจึงทำสองอย่างควบกัน — วางสถาปัตยกรรมเครือข่าย <span class="nb">โครงสร้างพื้นฐาน</span> และแอปให้ปลอดภัยตั้งแต่ตอนออกแบบ
+        แล้วทดสอบเจาะระบบเพื่อยืนยันว่าสิ่งที่ออกแบบไว้ทนของจริง
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          ขอใบเสนอราคา
+        </a>
+        <a class="btn btn-ghost" href="#pentest">ดูขอบเขตการทดสอบเจาะระบบ</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECURITY BY DESIGN ============ -->
+  <section id="design">
+    <div class="wrap">
+      <p class="eyebrow">บริการที่ 1</p>
+      <h2>ออกแบบเครือข่าย <span class="nb">โครงสร้างพื้นฐาน</span> และแอป แบบ Security by Design</h2>
+      <p class="sec-lede">
+        รับออกแบบระบบใหม่ หรือทบทวนระบบที่ใช้อยู่ โดยตั้งต้นจากคำถามว่า
+        “ถ้าจุดนี้ถูกยึด ผู้โจมตีไปต่อได้ไกลแค่ไหน” แล้วออกแบบให้คำตอบสั้นที่สุดเท่าที่เป็นไปได้
+      </p>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="2" y="14" width="20" height="7" rx="2"/><rect x="7" y="3" width="10" height="7" rx="2"/><path d="M12 10v4M6 17.5h.01M6 17.5h.01"/></svg></div>
+          <h3>เครือข่าย</h3>
+          <p>
+            แบ่งโซนและ VLAN ตามระดับความเสี่ยง วางไฟร์วอลล์และกฎ east-west
+            แยกวงผู้ใช้ออกจากวงเซิร์ฟเวอร์ ออกแบบการเข้าถึงจากภายนอกด้วย VPN
+            และวางจุดเก็บ log ให้ตามรอยได้เมื่อเกิดเหตุ
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
+          <h3><span class="nb">โครงสร้างพื้นฐาน</span></h3>
+          <p>
+            ทำ hardening ให้เซิร์ฟเวอร์และคอนเทนเนอร์ ปิดสิ่งที่ไม่ได้ใช้
+            แยกสิทธิ์ตามหลัก least privilege จัดการ secret ให้ไม่ปนอยู่ในโค้ดหรือ image
+            วางระบบสำรองข้อมูลที่กู้กลับได้จริง และแยกสิทธิ์ผู้ดูแลออกจากสิทธิ์ระบบงาน
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+          <h3>แอปพลิเคชัน</h3>
+          <p>
+            ทำ threat modeling ก่อนเขียนโค้ด ออกแบบการยืนยันตัวตนและการกำหนดสิทธิ์
+            ให้บังคับที่ฝั่งเซิร์ฟเวอร์ วางการเข้ารหัสข้อมูลทั้งตอนส่งและตอนเก็บ
+            และออกแบบ audit trail ให้ตอบได้ว่าใครทำอะไรกับข้อมูลไหน
+          </p>
+        </div>
+      </div>
+
+      <h3 class="case-sub-title">สิ่งที่ได้เมื่อจบงานออกแบบ</h3>
+      <ul class="feat two-col">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>แผนผังสถาปัตยกรรม</strong> ทั้งเครือข่ายและระบบ พร้อมคำอธิบายว่าทำไมต้องแบ่งแบบนั้น</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ตารางความเสี่ยง</strong> ที่จับคู่ภัยคุกคามกับมาตรการป้องกันเป็นข้อๆ ไม่ใช่คำกว้างๆ</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>มาตรฐานการตั้งค่า</strong> สำหรับเซิร์ฟเวอร์ คอนเทนเนอร์ และอุปกรณ์เครือข่าย พร้อมสคริปต์ที่ใช้จริง</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>แผนการนำไปใช้เป็นเฟส</strong> เรียงตามผลกระทบต่อระบบที่ทำงานอยู่ ไม่ต้องหยุดทั้งองค์กรเพื่อทำทีเดียว</span></li>
+      </ul>
+
+      <p class="eyebrow" style="margin-top:38px">อ้างอิงกรอบมาตรฐาน</p>
+      <ul class="chips">
+        <li>OWASP ASVS</li>
+        <li>OWASP SAMM</li>
+        <li>CIS Benchmarks</li>
+        <li>NIST SP 800-53</li>
+        <li>ISO/IEC 27001 (แนวปฏิบัติ)</li>
+        <li>Zero Trust</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PDPA ============ -->
+  <section id="pdpa" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">บริการที่ 2</p>
+      <h2>ออกแบบการจัดการข้อมูลส่วนบุคคลให้สอดคล้อง PDPA</h2>
+      <p class="sec-lede">
+        PDPA ไม่ได้จบที่แบนเนอร์คุกกี้กับเอกสารนโยบาย — ส่วนที่ยากคือระบบต้องทำตามที่นโยบายเขียนไว้จริง
+        เรารับดูฝั่งเทคนิค ตั้งแต่ข้อมูลไหลจากไหนไปไหน จนถึงตอนที่ต้องลบตามคำขอของเจ้าของข้อมูล
+      </p>
+
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <h3>รู้ก่อนว่ามีข้อมูลอะไรอยู่<span class="nb">ตรงไหน</span></h3>
+          <p>
+            ทำ data mapping ไล่ตั้งแต่จุดที่รับข้อมูลเข้ามา ผ่าน API ฐานข้อมูล ไฟล์แนบ
+            log สำรองข้อมูล ไปจนถึงบริการภายนอกที่รับข้อมูลต่อ แล้วจำแนกว่าอันไหนเป็นข้อมูลส่วนบุคคล
+            อันไหนเป็นข้อมูลอ่อนไหว
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>เก็บเท่าที่จำเป็นและมีวัน<span class="nb">หมดอายุ</span></h3>
+          <p>
+            ตัดฟิลด์ที่เก็บไว้เฉยๆ โดยไม่มีใครใช้ กำหนดระยะเวลาเก็บของข้อมูลแต่ละชุด
+            และทำงานลบอัตโนมัติเมื่อครบกำหนด รวมถึงข้อมูลที่ค้างอยู่ใน log และไฟล์สำรอง
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>รองรับสิทธิ์ของเจ้าของข้อมูล</h3>
+          <p>
+            ทำให้ระบบตอบคำขอเข้าถึง แก้ไข ลบ และขอสำเนาข้อมูลได้จริงในทางเทคนิค
+            พร้อมบันทึกการให้ความยินยอมและการถอนความยินยอมแยกตามวัตถุประสงค์
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>ปิดบังข้อมูลก่อนออกจากระบบ</h3>
+          <p>
+            เข้ารหัสข้อมูลอ่อนไหว ปิดบังข้อมูลในระบบทดสอบและใน log
+            และกรองข้อมูลส่วนบุคคลก่อนส่งออกไปให้บริการภายนอก — รวมถึงก่อนส่งไปให้โมเดล AI
+          </p>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:34px">
+        <h3>เรื่องนี้เราทำใช้เองอยู่แล้ว</h3>
+        <p>
+          ระบบ DevTrack ที่เราใช้บริหารงานภายในมีชั้นกรองข้อมูลส่วนบุคคลก่อนส่งคำขอไปหาโมเดล AI —
+          ตรวจจับเลขบัตรประชาชน อีเมล เบอร์โทร และชื่อบุคคล เลือกได้ว่าจะบล็อกหรือปิดบัง
+          และมีโหมดแทนชื่อผู้ใช้ด้วย token แล้วแปลงกลับในคำตอบ
+        </p>
+        <p><a href="/work/#devtrack-ai">ดูภาพหน้าจอจริงในหน้าผลงาน →</a></p>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        เรารับงานในฝั่งเทคนิคและการออกแบบระบบ ไม่ใช่การให้คำปรึกษาทางกฎหมาย —
+        สำหรับการตีความข้อกฎหมาย การจัดทำเอกสารตามกฎหมาย และการแต่งตั้ง DPO
+        เราทำงานร่วมกับที่ปรึกษากฎหมายหรือ DPO ขององค์กรคุณ
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PENTEST ============ -->
+  <section id="pentest">
+    <div class="wrap">
+      <p class="eyebrow">บริการที่ 3</p>
+      <h2>ทดสอบเจาะระบบและประเมินช่องโหว่</h2>
+      <p class="sec-lede">
+        ทดสอบด้วยมือโดยยึดกรอบสากลเป็นรายการตรวจ ไม่ใช่กดสแกนแล้วส่งผลดิบให้
+        เครื่องมืออัตโนมัติช่วยกวาดของง่ายก็จริง แต่ช่องโหว่ที่เจ็บที่สุดมักเป็นเรื่องตรรกะทางธุรกิจ
+        และการข้ามสิทธิ์ ซึ่งต้องเข้าใจระบบก่อนถึงจะเห็น
+      </p>
+
+      <div class="table-scroll reveal">
+        <table class="scope">
+          <thead>
+            <tr>
+              <th scope="col">ประเภทการทดสอบ</th>
+              <th scope="col">ครอบคลุมอะไร</th>
+              <th scope="col">กรอบอ้างอิง</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="web">
+              <td><strong>เว็บแอปพลิเคชัน</strong></td>
+              <td class="muted">
+                การยืนยันตัวตนและการจัดการเซสชัน · การข้ามสิทธิ์ทั้งแนวราบและแนวดิ่ง ·
+                การแทรกคำสั่ง (SQL, NoSQL, คำสั่งระบบ, เทมเพลต) · XSS และ CSRF ·
+                ช่องโหว่ตรรกะทางธุรกิจ เช่น การแก้ราคาหรือข้ามขั้นตอนชำระเงิน ·
+                การอัปโหลดไฟล์ · การตั้งค่าที่หละหลวมและข้อมูลที่รั่วออกมาทางหน้าเว็บ
+              </td>
+              <td class="muted">OWASP WSTG<br>OWASP Top 10<br>OWASP ASVS</td>
+            </tr>
+            <tr id="api">
+              <td><strong>API</strong></td>
+              <td class="muted">
+                การกำหนดสิทธิ์ระดับ object และระดับฟังก์ชัน (BOLA / BFLA) ·
+                การยืนยันตัวตนของเครื่องต่อเครื่องและอายุของโทเคน ·
+                การส่งฟิลด์เกินความจำเป็นและ mass assignment ·
+                การจำกัดอัตราการเรียกและการใช้ทรัพยากร ·
+                endpoint ที่หลงเหลือจากเวอร์ชันเก่า · ความถูกต้องของเอกสาร API เทียบกับของจริง
+              </td>
+              <td class="muted">OWASP API<br>Security Top 10<br>OWASP ASVS</td>
+            </tr>
+            <tr id="mobile">
+              <td><strong>แอปมือถือ</strong><br><span class="muted">Android / iOS</span></td>
+              <td class="muted">
+                วิเคราะห์ไฟล์แอปแบบสถิต หา key และ endpoint ที่ฝังมากับไฟล์ ·
+                ตรวจการเก็บข้อมูลในเครื่องว่ามีอะไรถูกเก็บแบบไม่เข้ารหัส ·
+                ตรวจการเชื่อมต่อและการตรึงใบรับรอง (certificate pinning) ·
+                ทดสอบบนเครื่องที่ปลดสิทธิ์แล้วเพื่อดูว่าแอปยังทำงานตามที่ควรหรือไม่ ·
+                ตรวจการเปิดเผยข้อมูลผ่าน log, clipboard และภาพหน้าจอเบื้องหลัง ·
+                ทดสอบ API ที่แอปเรียกไปพร้อมกัน
+              </td>
+              <td class="muted">OWASP MASTG<br>OWASP MASVS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="case-sub-title">เลือกระดับการเปิดข้อมูลได้</h3>
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h3>Black box</h3>
+          <p>ไม่ให้ข้อมูลภายในเลย จำลองมุมมองผู้โจมตีจากภายนอก เห็นภาพว่าคนนอกทำอะไรได้บ้าง แต่ใช้เวลาไล่มากกว่า</p>
+        </div>
+        <div class="card reveal">
+          <h3>Grey box <span class="status" style="margin-inline-start:6px">แนะนำ</span></h3>
+          <p>ให้บัญชีผู้ใช้ระดับต่างๆ และเอกสาร API ครอบคลุมกว่าในเวลาเท่ากัน และตรวจการข้ามสิทธิ์ระหว่างบทบาทได้จริง</p>
+        </div>
+        <div class="card reveal">
+          <h3>White box</h3>
+          <p>เปิดซอร์สโค้ดและการตั้งค่าให้ดูด้วย ลึกที่สุด เหมาะกับระบบที่รับผิดชอบเงินหรือข้อมูลอ่อนไหว</p>
+        </div>
+      </div>
+
+      <h3 class="case-sub-title">สิ่งที่คุณจะได้รับ</h3>
+      <ul class="feat two-col">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>บทสรุปสำหรับผู้บริหาร</strong> — ความเสี่ยงโดยรวมและสิ่งที่ควรแก้ก่อน อ่านจบได้ในหน้าเดียว</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>รายงานเชิงเทคนิครายช่องโหว่</strong> — ระดับความรุนแรงตาม CVSS พร้อมเหตุผลที่ให้คะแนนนั้น</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ขั้นตอนทำซ้ำได้จริง</strong> — คำขอ ภาพหน้าจอ และหลักฐานประกอบ ให้ทีมพัฒนายืนยันเองได้</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>แนวทางแก้ไขที่ลงมือได้</strong> — บอกว่าต้องแก้ตรงไหนอย่างไร ไม่ใช่แค่ชี้ว่าผิด</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ประชุมสรุปผลกับทีมพัฒนา</strong> — เดินผ่านทุกข้อและตอบคำถามหน้างาน</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ทดสอบซ้ำหลังแก้ไข</strong> — รวมอยู่ในราคาแล้ว ภายในกรอบเวลาที่ตกลงกัน พร้อมออกรายงานฉบับปิดงาน</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ RULES OF ENGAGEMENT ============ -->
+  <section id="rules" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">ขอบเขตและจริยธรรม</p>
+      <h2>เราทดสอบเฉพาะระบบที่คุณมีสิทธิ์ให้ทดสอบ</h2>
+      <p class="sec-lede tight">
+        การทดสอบเจาะระบบต่างจากการโจมตีจริงตรงเอกสารอนุญาตเท่านั้น
+        เราจึงถือเรื่องนี้เป็นเงื่อนไขเริ่มงาน ไม่ใช่แบบฟอร์มที่ตามเก็บทีหลัง
+      </p>
+
+      <div class="callout warn reveal">
+        <h3>ก่อนเริ่มทดสอบ ต้องมีครบทั้ง 3 อย่าง</h3>
+        <ul>
+          <li><strong>หนังสืออนุญาตให้ทดสอบ</strong> ลงนามโดยผู้มีอำนาจขององค์กรที่เป็นเจ้าของระบบ ระบุระบบและช่วงเวลาที่อนุญาตอย่างชัดเจน</li>
+          <li><strong>เอกสารข้อตกลงการทดสอบ (Rules of Engagement)</strong> ระบุรายการระบบที่อยู่ในขอบเขต ระบบที่ห้ามแตะ ช่วงเวลาที่ทดสอบได้ IP ต้นทางของเรา และช่องทางติดต่อฉุกเฉินทั้งสองฝ่าย</li>
+          <li><strong>ข้อตกลงรักษาความลับ (NDA)</strong> ครอบคลุมทั้งข้อมูลที่พบระหว่างทดสอบและตัวรายงาน</li>
+        </ul>
+      </div>
+
+      <div class="grid cols-2" style="margin-top:26px">
+        <div class="card reveal">
+          <h3>ถ้าระบบไม่ได้เป็นของคุณ</h3>
+          <p>
+            ระบบที่โฮสต์อยู่กับผู้ให้บริการภายนอก หรือซอฟต์แวร์ที่ซื้อมาจากผู้ขายรายอื่น
+            ต้องได้รับอนุญาตจากเจ้าของระบบนั้นด้วย เรายินดีช่วยร่างคำขอให้ แต่จะไม่เริ่มทดสอบจนกว่าจะได้รับอนุญาตครบ
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>สิ่งที่เราไม่ทำ</h3>
+          <p>
+            ไม่ทดสอบภาระโหลดหรือ DoS บนระบบที่ให้บริการอยู่จริง เว้นแต่ตกลงกันไว้และมีสภาพแวดล้อมแยก ·
+            ไม่ใช้เทคนิคหลอกลวงพนักงานโดยไม่ได้ตกลงล่วงหน้า ·
+            ไม่ดึงข้อมูลจริงออกมาเกินกว่าที่จำเป็นต่อการพิสูจน์ช่องโหว่
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>ระหว่างและหลังการทดสอบ</h3>
+          <p>
+            พบช่องโหว่ระดับวิกฤตจะแจ้งทันทีระหว่างทาง ไม่รอถึงวันส่งรายงาน ·
+            บันทึกเวลาและกิจกรรมทั้งหมดไว้ให้ตรวจสอบเทียบกับ log ฝั่งคุณได้ ·
+            ทำลายข้อมูลและหลักฐานที่เก็บระหว่างทดสอบเมื่อปิดงาน ตามกำหนดในสัญญา
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>ทดสอบบนระบบทดสอบ<span class="nb">ก่อนเสมอ</span></h3>
+          <p>
+            ถ้ามีระบบ staging ที่ข้อมูลและการตั้งค่าใกล้เคียงของจริง เราเสนอให้ทดสอบที่นั่นก่อน
+            แล้วค่อยยืนยันเฉพาะบางรายการบนระบบจริงในช่วงเวลาที่กระทบผู้ใช้น้อยที่สุด
+          </p>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:26px">
+        การเข้าถึงระบบคอมพิวเตอร์ของผู้อื่นโดยไม่ได้รับอนุญาตเป็นความผิดตามกฎหมาย
+        เราจึงไม่รับงานที่ไม่มีเอกสารอนุญาตจากเจ้าของระบบ ไม่ว่าจะด้วยเหตุผลใดก็ตาม
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section id="process">
+    <div class="wrap">
+      <p class="eyebrow">ขั้นตอนการทำงาน</p>
+      <h2>ห้าขั้นตอน ตั้งแต่ตกลงขอบเขตจนถึงรายงานฉบับปิดงาน</h2>
+      <p class="sec-lede">ทุกขั้นตอนมีสิ่งส่งมอบชัดเจน คุณรู้ตลอดว่าตอนนี้อยู่ตรงไหนและกำลังรออะไร</p>
+
+      <div class="steps five">
+        <div class="step reveal">
+          <h3>ตกลงขอบเขต</h3>
+          <p>ระบุระบบที่ทดสอบ ช่วงเวลา และระดับการเปิดข้อมูล แล้วเสนอราคาเป็นลายลักษณ์อักษร</p>
+        </div>
+        <div class="step reveal">
+          <h3>ลงนามเอกสาร</h3>
+          <p>หนังสืออนุญาต ข้อตกลงการทดสอบ และ NDA ครบก่อนจึงเริ่มได้</p>
+        </div>
+        <div class="step reveal">
+          <h3>ทดสอบ</h3>
+          <p>ทดสอบด้วยมือตามกรอบมาตรฐาน แจ้งทันทีถ้าพบช่องโหว่ระดับวิกฤต</p>
+        </div>
+        <div class="step reveal">
+          <h3>รายงาน + <span class="nb">ประชุมสรุป</span></h3>
+          <p>ส่งรายงานพร้อมขั้นตอนทำซ้ำและแนวทางแก้ แล้วเดินผ่านทุกข้อกับทีมพัฒนา</p>
+        </div>
+        <div class="step reveal">
+          <h3>ทดสอบซ้ำ</h3>
+          <p>หลังคุณแก้เสร็จ เราทดสอบซ้ำเฉพาะรายการที่แก้ แล้วออกรายงานฉบับปิดงาน</p>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:38px">
+        <h3>ราคาขึ้นกับขอบเขต ไม่ใช่ราคาเหมา</h3>
+        <p>
+          จำนวนหน้าจอและ endpoint ที่ต้องทดสอบ จำนวนบทบาทผู้ใช้ ระดับการเปิดข้อมูล
+          และเงื่อนไขว่าต้องทดสอบนอกเวลาทำการหรือไม่ — สี่ข้อนี้กำหนดจำนวนวันที่ใช้
+          ส่งรายละเอียดระบบมาคร่าวๆ เราประเมินให้ฟรี พร้อมบอกว่าเราจะทดสอบอะไรบ้าง
+        </p>
+        <p><a href="#contact">ส่งรายละเอียดมาประเมิน →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="alt">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <p class="eyebrow">ติดต่อ</p>
+        <h2>อยากให้ตรวจระบบ หรืออยากออกแบบใหม่ให้ปลอดภัยกว่าเดิม?</h2>
+        <p>
+          เล่ามาคร่าวๆ ว่าระบบเป็นแบบไหน มีกี่ส่วน และอยากได้ผลเมื่อไหร่
+          เราจะตอบกลับพร้อมขอบเขตที่เสนอและราคาโดยประมาณ
+        </p>
+
+        <div class="mail-grid">
+          <div class="mail-block">
+            <p class="mail-label">งานด้านความปลอดภัย / ทดสอบเจาะระบบ</p>
+            <button class="mail-box js-mail" data-k="work" data-subject="สอบถามบริการด้านความปลอดภัย / ทดสอบเจาะระบบ" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อสอบถามบริการด้านความปลอดภัย">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              <img class="mail-img on-light" src="/assets/contact-work-light.png" width="361" height="23" alt="อีเมลสำหรับติดต่องาน แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
+              <img class="mail-img on-dark" src="/assets/contact-work-dark.png" width="361" height="23" alt="">
+            </button>
+            <button class="btn btn-ghost btn-sm js-copy" data-k="work" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              คัดลอก
+            </button>
+          </div>
+
+          <div class="mail-block">
+            <p class="mail-label">สอบถามเรื่องแอปของเรา</p>
+            <button class="mail-box js-mail" data-k="apps" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อสอบถามเรื่องแอป">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              <img class="mail-img on-light" src="/assets/contact-apps-light.png" width="239" height="23" alt="อีเมลสำหรับสอบถามเรื่องแอป แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
+              <img class="mail-img on-dark" src="/assets/contact-apps-dark.png" width="239" height="23" alt="">
+            </button>
+            <button class="btn btn-ghost btn-sm js-copy" data-k="apps" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              คัดลอก
+            </button>
+          </div>
+        </div>
+
+        <p class="copied" role="status" aria-live="polite"></p>
+        <p class="mail-hint">
+          กรุณาอย่าส่งข้อมูลลับหรือรายละเอียดช่องโหว่มาทางอีเมลรอบแรก —
+          เมื่อคุยกันแล้วเราจะจัดช่องทางรับส่งไฟล์ที่เข้ารหัสให้
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Netsoft Expert Studio</span>
+    <a href="/products/">ผลิตภัณฑ์</a>
+    <a href="/services/">บริการ</a>
+    <a href="/security/">ความปลอดภัย</a>
+    <a href="/work/">ผลงาน</a>
+    <span class="spacer"></span>
+    <a href="https://netsoft-expert.com/doovnow-privacy/">นโยบายความเป็นส่วนตัว DooVNow</a>
+    <a href="https://github.com/burachai-x">GitHub</a>
+    <button class="linklike js-mail" data-k="work" type="button">อีเมลติดต่องาน</button>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+
+</body>
+</html>

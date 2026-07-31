@@ -3,313 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Netsoft Expert Studio — แอปของเรา &amp; รับพัฒนาซอฟต์แวร์</title>
-<meta name="description" content="Netsoft Expert Studio พัฒนาแอป Android ของตัวเอง — DooVNow, วัดที่, DooNang+ — และรับงานพัฒนาซอฟต์แวร์ให้ธุรกิจ ตั้งแต่ออกแบบระบบจนถึงติดตั้งใช้งานจริง">
+<title>Netsoft Expert Studio — พัฒนาซอฟต์แวร์ ออกแบบระบบปลอดภัย และทดสอบเจาะระบบ</title>
+<meta name="description" content="Netsoft Expert Studio รับพัฒนาซอฟต์แวร์ ออกแบบเครือข่ายและแอปแบบ Security by Design ตามหลัก PDPA และให้บริการทดสอบเจาะระบบเว็บ API และแอปมือถือ พร้อมแอป Android ที่พัฒนาเอง">
+<link rel="canonical" href="https://netsoft-expert.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Netsoft Expert Studio — แอปของเรา &amp; รับพัฒนาซอฟต์แวร์">
-<meta property="og:description" content="แอป Android ที่เราสร้างเอง และบริการรับพัฒนาซอฟต์แวร์ตามความต้องการ">
+<meta property="og:title" content="Netsoft Expert Studio — พัฒนาซอฟต์แวร์ ออกแบบระบบปลอดภัย และทดสอบเจาะระบบ">
+<meta property="og:description" content="รับพัฒนาซอฟต์แวร์ ออกแบบระบบแบบ Security by Design ตามหลัก PDPA และทดสอบเจาะระบบเว็บ API และแอปมือถือ">
 <meta property="og:url" content="https://netsoft-expert.com/">
 <meta name="theme-color" content="#4f46e5">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; }
-
-  :root {
-    color-scheme: light dark;
-    --bg:        #ffffff;
-    --bg-soft:   #f6f7fb;
-    --card:      #ffffff;
-    --border:    #e4e6ef;
-    --text:      #14161f;
-    --muted:     #5b6076;
-    --brand:     #4f46e5;
-    --brand-2:   #06b6d4;
-    --brand-ink: #ffffff;
-    --shadow:    0 1px 2px rgba(16,18,32,.05), 0 12px 32px -12px rgba(16,18,32,.16);
-    --radius:    16px;
-    --maxw:      1080px;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg:      #0c0d13;
-      --bg-soft: #12141d;
-      --card:    #161824;
-      --border:  #272a3a;
-      --text:    #e9eaf2;
-      --muted:   #9ba1b8;
-      --brand:   #7c7bff;
-      --brand-2: #22d3ee;
-      --shadow:  0 1px 2px rgba(0,0,0,.4), 0 16px 40px -16px rgba(0,0,0,.7);
-    }
-  }
-
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-  body {
-    margin: 0;
-    font-family: "IBM Plex Sans Thai", "IBM Plex Sans", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  a { color: var(--brand); }
-  img { max-width: 100%; height: auto; display: block; }
-
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-
-  /* ---------- Header ---------- */
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav { display: flex; align-items: center; gap: 20px; height: 64px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; color: var(--text); letter-spacing: -.01em; }
-  .brand .mark {
-    width: 30px; height: 30px; border-radius: 9px; flex: none;
-    background: linear-gradient(135deg, var(--brand), var(--brand-2));
-    display: grid; place-items: center;
-  }
-  .brand .mark svg { width: 15px; height: 15px; fill: #fff; }
-  .nav .spacer { margin-inline-start: auto; }
-  .nav a.link { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
-  .nav a.link:hover { color: var(--text); }
-  @media (max-width: 760px) { .nav a.link.hide-sm { display: none; } }
-
-  /* ---------- Buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 11px 20px; border-radius: 11px;
-    font-weight: 600; font-size: .95rem; text-decoration: none;
-    border: 1px solid transparent; cursor: pointer;
-    font-family: inherit;
-    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--brand); color: var(--brand-ink); box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--brand) 70%, transparent); }
-  .btn-primary:hover { background: color-mix(in srgb, var(--brand) 88%, #000); }
-  .btn-ghost { background: var(--card); color: var(--text); border-color: var(--border); }
-  .btn-ghost:hover { border-color: color-mix(in srgb, var(--brand) 50%, var(--border)); }
-  .btn svg { width: 17px; height: 17px; flex: none; }
-
-  /* ---------- Hero ---------- */
-  .hero { position: relative; padding: 80px 0 68px; }
-  .hero::before {
-    content: ""; position: absolute; inset: -40% 0 auto 0; height: 640px; z-index: -1;
-    background:
-      radial-gradient(560px 300px at 20% 42%, color-mix(in srgb, var(--brand) 22%, transparent), transparent 70%),
-      radial-gradient(520px 300px at 78% 30%, color-mix(in srgb, var(--brand-2) 18%, transparent), transparent 70%);
-    filter: blur(6px);
-  }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 52px; align-items: center; }
-  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 44px; } .hero { padding: 54px 0 50px; } }
-
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 13px 6px 10px; border-radius: 999px;
-    background: color-mix(in srgb, var(--brand) 10%, var(--card));
-    border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--border));
-    color: color-mix(in srgb, var(--brand) 78%, var(--text));
-    font-size: .84rem; font-weight: 600;
-  }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand-2); flex: none;
-         box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-2) 22%, transparent); }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 2.95rem);
-    line-height: 1.25; letter-spacing: -.02em; font-weight: 700;
-    margin: 20px 0 16px; text-wrap: balance;
-  }
-  h1 .grad {
-    background: linear-gradient(100deg, var(--brand), var(--brand-2));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .lede { font-size: 1.06rem; color: var(--muted); max-width: 48ch; margin: 0 0 28px; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
-
-  /* hero artwork: two app shots, slightly fanned out */
-  .fan { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: 0; }
-  .fan img { border-radius: 18px; box-shadow: var(--shadow); }
-  .fan .back {
-    width: 43%; transform: rotate(-6deg) translateX(16%);
-    border: 1px solid var(--border);
-  }
-  .fan .front { width: 50%; transform: rotate(4deg) translateX(-6%); position: relative; z-index: 2; }
-  @media (prefers-reduced-motion: reduce) { .fan .back, .fan .front { transform: none; } }
-  @media (max-width: 900px) { .fan { max-width: 460px; margin: 0 auto; } }
-
-  /* ---------- Sections ---------- */
-  section { padding: 74px 0; }
-  section.alt { background: var(--bg-soft); border-block: 1px solid var(--border); }
-  @media (max-width: 880px) { section { padding: 54px 0; } }
-
-  .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--brand); margin: 0 0 10px; }
-  h2 { font-size: clamp(1.5rem, 3.4vw, 2.05rem); line-height: 1.32; letter-spacing: -.015em; margin: 0 0 14px; font-weight: 700; text-wrap: balance; }
-  .sec-lede { color: var(--muted); max-width: 62ch; margin: 0 0 42px; }
-
-  /* ---------- Product rows ---------- */
-  .product { display: grid; grid-template-columns: .95fr 1.05fr; gap: 48px; align-items: center; margin-bottom: 72px; }
-  /* without this the scrolling gallery refuses to shrink and squeezes the text column */
-  .product > * { min-width: 0; }
-  .product:last-of-type { margin-bottom: 0; }
-  .product.flip .product-media { order: 2; }
-  @media (max-width: 880px) {
-    .product { grid-template-columns: 1fr; gap: 30px; margin-bottom: 54px; }
-    .product.flip .product-media { order: 0; }
-  }
-
-  .product h3 { font-size: 1.5rem; margin: 14px 0 10px; letter-spacing: -.015em; font-weight: 700; }
-  .product .sub { color: var(--muted); margin: 0 0 20px; }
-  .feat { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 10px; }
-  .feat li { display: flex; gap: 10px; align-items: flex-start; font-size: .97rem; }
-  .feat li svg { width: 19px; height: 19px; flex: none; margin-top: 5px; stroke: var(--brand); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-  .note { font-size: .87rem; color: var(--muted); border-inline-start: 3px solid var(--border); padding-inline-start: 12px; margin: 0; }
-
-  .status {
-    display: inline-flex; align-items: center; gap: 7px; font-size: .8rem; font-weight: 600;
-    padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border);
-    background: var(--card); color: var(--muted);
-  }
-  .status.live { color: color-mix(in srgb, var(--brand) 80%, var(--text)); border-color: color-mix(in srgb, var(--brand) 32%, var(--border)); }
-
-  /* phone frame for raw screen captures */
-  .phone-frame {
-    max-width: 300px; margin: 0 auto; padding: 9px; border-radius: 34px;
-    background: linear-gradient(160deg, color-mix(in srgb, var(--brand) 45%, #1b1c28), #14151f);
-    box-shadow: var(--shadow);
-  }
-  .phone-frame img { border-radius: 26px; }
-
-  /* horizontal gallery for the store artwork */
-  .gallery { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
-  .gallery img {
-    height: 380px; width: auto; max-width: none; border-radius: 14px;
-    border: 1px solid var(--border); scroll-snap-align: start; flex: none;
-  }
-  @media (max-width: 620px) { .gallery img { height: 300px; } }
-
-  /* ---------- Cards ---------- */
-  .grid { display: grid; gap: 18px; }
-  .cols-3 { grid-template-columns: repeat(3, 1fr); }
-  @media (max-width: 900px) { .cols-3 { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 620px) { .cols-3 { grid-template-columns: 1fr; } }
-
-  .card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 24px;
-    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
-  }
-  .card:hover { border-color: color-mix(in srgb, var(--brand) 42%, var(--border)); transform: translateY(-2px); box-shadow: var(--shadow); }
-  .card h3 { margin: 0 0 8px; font-size: 1.06rem; font-weight: 600; letter-spacing: -.01em; }
-  .card p  { margin: 0; color: var(--muted); font-size: .95rem; }
-  .icon {
-    width: 40px; height: 40px; border-radius: 11px; margin-bottom: 15px;
-    display: grid; place-items: center;
-    background: color-mix(in srgb, var(--brand) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
-  }
-  .icon svg { width: 20px; height: 20px; stroke: var(--brand); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-
-  /* ---------- Work / case study ---------- */
-  .case { margin-bottom: 72px; }
-  .case:last-of-type { margin-bottom: 0; }
-  .case-title { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 700; letter-spacing: -.015em; margin: 0 0 10px; }
-  .case-sub { color: var(--muted); max-width: 68ch; margin: 0 0 26px; }
-  .case-sub-title { font-size: 1.1rem; font-weight: 600; margin: 44px 0 8px; letter-spacing: -.01em; }
-  .work-grid { margin-bottom: 34px; }
-  .work-grid .feat { max-width: 76ch; }
-  /* one wide column — these are dense ERP tables, two-up renders them unreadable */
-  .shots { display: grid; grid-template-columns: 1fr; gap: 36px; max-width: 900px; }
-  .shot-card { margin: 0; min-width: 0; }
-  .shot-card img {
-    width: 100%; border-radius: 12px; border: 1px solid var(--border);
-    background: #fff; box-shadow: var(--shadow);
-  }
-  .shot-card figcaption { margin-top: 10px; font-size: .89rem; color: var(--muted); }
-
-  /* ---------- Steps ---------- */
-  .steps { counter-reset: step; display: grid; gap: 14px; grid-template-columns: repeat(4, 1fr); }
-  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
-  .step { padding: 22px 20px 20px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
-  .step::before {
-    counter-increment: step; content: counter(step);
-    display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff;
-    font-weight: 700; font-size: .85rem; margin-bottom: 12px;
-  }
-  .step h3 { margin: 0 0 6px; font-size: 1rem; font-weight: 600; }
-  .step p { margin: 0; color: var(--muted); font-size: .92rem; }
-
-  /* ---------- Contact ---------- */
-  .contact-card {
-    background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 13%, var(--card)), color-mix(in srgb, var(--brand-2) 9%, var(--card)));
-    border: 1px solid color-mix(in srgb, var(--brand) 26%, var(--border));
-    border-radius: 22px; padding: 46px 38px; text-align: center;
-  }
-  @media (max-width: 620px) { .contact-card { padding: 34px 20px; } }
-  .contact-card p { color: var(--muted); max-width: 52ch; margin: 0 auto 26px; }
-
-  .mail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
-  @media (max-width: 780px) { .mail-grid { grid-template-columns: 1fr; gap: 26px; } }
-  .mail-block { display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; }
-  .mail-label { font-size: .85rem; font-weight: 600; color: var(--muted); margin: 0; }
-
-  .mail-box {
-    display: inline-flex; align-items: center; gap: 12px; max-width: 100%; min-width: 0;
-    padding: 13px 20px; border-radius: 13px; cursor: pointer;
-    background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow);
-    font-family: inherit;
-    transition: border-color .18s ease, transform .18s ease;
-  }
-  .mail-box:hover { border-color: var(--brand); transform: translateY(-2px); }
-  .mail-box svg { width: 21px; height: 21px; stroke: var(--brand); fill: none; stroke-width: 1.8; flex: none; }
-  /* no `width` here on purpose — the HTML width attribute carries the 1x size,
-     while the file itself is rendered at 3x for high-DPI screens */
-  .mail-img { max-width: 100%; height: auto; }
-  .mail-img.on-dark { display: none; }
-  @media (prefers-color-scheme: dark) {
-    .mail-img.on-light { display: none; }
-    .mail-img.on-dark { display: block; }
-  }
-  .btn-sm { padding: 7px 14px; font-size: .87rem; }
-  .mail-hint { font-size: .84rem; color: var(--muted); margin: 20px 0 0; }
-  .copied { font-size: .88rem; font-weight: 600; color: var(--brand); min-height: 1.4em; margin: 10px 0 0; }
-
-  /* ---------- Footer ---------- */
-  footer { border-top: 1px solid var(--border); padding: 34px 0; color: var(--muted); font-size: .9rem; }
-  .foot { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; }
-  .foot .spacer { margin-inline-start: auto; }
-  .foot a, .foot button.linklike { color: var(--muted); text-decoration: none; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
-  .foot a:hover, .foot button.linklike:hover { color: var(--brand); }
-
-  /* ---------- Reveal ---------- */
-  .reveal { opacity: 0; transform: translateY(12px); transition: opacity .38s ease, transform .38s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
-</style>
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
+<a class="skip" href="#top">ข้ามไปยังเนื้อหา</a>
+
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">
+    <a class="brand" href="/">
       <span class="mark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       Netsoft Expert Studio
     </a>
     <span class="spacer"></span>
-    <a class="link hide-sm" href="#products">ผลิตภัณฑ์</a>
-    <a class="link hide-sm" href="#services">บริการ</a>
-    <a class="link hide-sm" href="#work">ผลงาน</a>
+    <nav class="nav-links" aria-label="เมนูหลัก">
+      <a href="/products/">ผลิตภัณฑ์</a>
+      <a href="/services/">บริการ</a>
+      <a href="/security/">ความปลอดภัย</a>
+      <a href="/work/">ผลงาน</a>
+    </nav>
     <a class="btn btn-primary" href="#contact">ติดต่อเรา</a>
   </div>
 </header>
@@ -320,279 +44,107 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="badge"><span class="dot"></span> สตูดิโอพัฒนาแอปและซอฟต์แวร์ตามสั่ง</span>
-        <h1>แอปที่เราสร้างเอง<br><span class="grad">และซอฟต์แวร์ที่เราสร้างให้คุณ</span></h1>
+        <span class="badge"><span class="dot"></span> ซอฟต์แวร์ตามสั่ง · ออกแบบระบบปลอดภัย · ทดสอบเจาะระบบ</span>
+        <!-- no <br> here on purpose — text-wrap:balance splits this more evenly than a
+             fixed break does, which matters because the Thai line is long -->
+        <h1>สร้างระบบให้ใช้งานได้จริง <span class="grad">และปลอดภัยตั้งแต่วันแรก</span></h1>
         <p class="lede">
-          Netsoft Expert Studio พัฒนาแอป Android ของตัวเองตั้งแต่ต้นจนขึ้นสโตร์
-          และรับงานพัฒนาซอฟต์แวร์ให้ธุรกิจ ตั้งแต่ออกแบบระบบ เขียนโค้ด จนถึงติดตั้งใช้งานจริงบนเซิร์ฟเวอร์
+          Netsoft Expert Studio รับพัฒนาซอฟต์แวร์ให้ธุรกิจ ออกแบบเครือข่ายและแอปตามแนวคิด
+          Security by Design ที่รองรับ PDPA และทดสอบเจาะระบบเพื่อพิสูจน์ว่าสิ่งที่ออกแบบไว้ทนของจริง
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
             คุยเรื่องงานกับเรา
           </a>
-          <a class="btn btn-ghost" href="#products">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
-            ดูแอปของเรา
+          <a class="btn btn-ghost" href="/security/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            บริการด้านความปลอดภัย
           </a>
         </div>
       </div>
 
       <div class="fan">
-        <img class="back" src="assets/watthi.webp" width="620" height="1303" alt="หน้าจอแอปวัดที่ กำลังวัดพื้นที่ที่ดินบนแผนที่ดาวเทียม">
-        <img class="front" src="assets/doovnow-home.webp" width="560" height="840" alt="หน้าจอแอป DooVNow แสดงรายการวิดีโอ">
+        <img class="back" src="/assets/watthi.webp" width="620" height="1303" alt="หน้าจอแอปวัดที่ กำลังวัดพื้นที่ที่ดินบนแผนที่ดาวเทียม">
+        <img class="front" src="/assets/doovnow-home.webp" width="560" height="840" alt="หน้าจอแอป DooVNow แสดงรายการวิดีโอ">
       </div>
     </div>
   </div>
 
-  <!-- ============ PRODUCTS ============ -->
-  <section id="products" class="alt">
+  <!-- ============ WHAT WE DO ============ -->
+  <section class="alt">
     <div class="wrap">
-      <p class="eyebrow">ผลิตภัณฑ์ของเรา</p>
-      <h2>แอปที่เราพัฒนาเอง</h2>
-      <p class="sec-lede">เราไม่ได้รับจ้างเขียนอย่างเดียว — เราลงมือทำแอปของตัวเองตั้งแต่ออกแบบ เขียน ทดสอบ จนถึงยื่นขึ้นสโตร์ จึงรู้ปัญหาจริงทุกขั้นตอน</p>
-
-      <!-- DooVNow -->
-      <div class="product reveal">
-        <div class="product-media">
-          <div class="gallery">
-            <img src="assets/doovnow-home.webp" width="560" height="840" loading="lazy" alt="DooVNow หน้าค้นพบวิดีโอ">
-            <img src="assets/doovnow-watch.webp" width="560" height="995" loading="lazy" alt="DooVNow หน้าเล่นวิดีโอ">
-            <img src="assets/doovnow-library.webp" width="560" height="995" loading="lazy" alt="DooVNow หน้าคลังของคุณ">
-            <img src="assets/doovnow-liked.webp" width="560" height="995" loading="lazy" alt="DooVNow หน้าวิดีโอที่ถูกใจ">
-          </div>
-        </div>
-        <div>
-          <span class="status live"><span class="dot"></span> รอ Google ตรวจสอบ — เร็วๆ นี้บน Google Play</span>
-          <h3>DooVNow</h3>
-          <p class="sub">แอปรับชมวิดีโอ YouTube บน Android ที่เบา เรียบง่าย และไม่เก็บข้อมูลคุณ</p>
-          <ul class="feat">
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ไม่มี SDK โฆษณา ตัวติดตาม หรือตัววิเคราะห์พฤติกรรม</strong>ฝังอยู่ในแอปเลย</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>ลงชื่อเข้าใช้เพื่อดูช่องที่ติดตามได้ โดยโทเคนเก็บไว้<strong>ในเครื่องคุณเท่านั้น</strong> ไม่ส่งมาที่เซิร์ฟเวอร์ของเรา</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>เล่นสื่อต่อเนื่องพร้อมปุ่มควบคุมบนแถบแจ้งเตือน</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>ขอสิทธิ์เท่าที่จำเป็น — ไม่ขอตำแหน่งที่ตั้ง กล้อง ไมโครโฟน หรือรายชื่อผู้ติดต่อ</span></li>
-          </ul>
-          <p class="note">ทุกข้อข้างต้นตรงกับ <a href="https://netsoft-expert.com/doovnow-privacy/">นโยบายความเป็นส่วนตัวที่เผยแพร่จริง</a> ตรวจสอบได้</p>
-        </div>
-      </div>
-
-      <!-- วัดที่ -->
-      <div class="product flip reveal">
-        <div class="product-media">
-          <div class="phone-frame">
-            <img src="assets/watthi.webp" width="620" height="1303" loading="lazy" alt="แอปวัดที่ แสดงผลการวัดพื้นที่ 1 ไร่ บนภาพถ่ายดาวเทียม">
-          </div>
-        </div>
-        <div>
-          <span class="status">อยู่ระหว่างพัฒนา</span>
-          <h3>วัดที่</h3>
-          <p class="sub">วัดขนาดที่ดินจากภาพถ่ายดาวเทียมได้เองในไม่กี่แตะ รู้ผลเป็นไร่-งาน-ตารางวาทันที</p>
-          <ul class="feat">
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>วางจุดมุมที่ละจุด หรือ<strong>วางกรอบ 1 ไร่</strong>แล้วลากปรับให้พอดีแปลง</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>อ่านผลเป็น <strong>ไร่ / งาน / ตารางวา</strong> และตารางเมตรพร้อมกัน</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>ไปที่แปลงด้วยตำแหน่งปัจจุบัน หรือพิมพ์พิกัดเข้าไปตรงๆ</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>สลับแผนที่แบบผสม/ดาวเทียม และดูทิศแดดของแปลงได้</span></li>
-          </ul>
-          <p class="note">ค่าที่ได้เป็นค่าประมาณจากแผนที่ ใช้แทนการรังวัดโฉนดอย่างเป็นทางการไม่ได้</p>
-        </div>
-      </div>
-
-      <!-- DooNang+ -->
-      <div class="product reveal">
-        <div class="product-media">
-          <div class="phone-frame">
-            <img src="assets/doonang.webp" width="620" height="1102" loading="lazy" alt="หน้าหลักของแอป DooNang+ แสดงซีรีส์สั้นแนะนำและมาแรง">
-          </div>
-        </div>
-        <div>
-          <span class="status">อยู่ระหว่างพัฒนา</span>
-          <h3>DooNang+</h3>
-          <p class="sub">แอปดูซีรีส์สั้น (short drama) บน Android</p>
-          <ul class="feat">
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>ค้นหาชื่อเรื่อง และกรองตามหมวด — รัก แฟนตาซี ไซไฟ แอ็กชัน</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>เลือกภาษาของเนื้อหาได้ทั้งไทยและอังกฤษ</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>มีคลังส่วนตัวสำหรับเก็บเรื่องที่กำลังดูค้างไว้</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>สร้างด้วย Kotlin + Jetpack Compose เช่นเดียวกับแอปอื่นของเรา</span></li>
-          </ul>
-          <p class="note">ยังอยู่ในขั้นพัฒนา ยังไม่เปิดให้ดาวน์โหลดทั่วไป</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICES ============ -->
-  <section id="services">
-    <div class="wrap">
-      <p class="eyebrow">บริการ</p>
-      <h2>รับพัฒนาซอฟต์แวร์ตามความต้องการ</h2>
+      <p class="eyebrow">เราทำอะไร</p>
+      <h2>สี่ด้านที่เราลงมือทำเองทั้งหมด</h2>
       <p class="sec-lede">
-        รับงานพัฒนาซอฟต์แวร์ให้องค์กรและธุรกิจ ตั้งแต่ออกแบบระบบ เขียนโค้ด
-        ไปจนถึงติดตั้งบนเซิร์ฟเวอร์จริงและดูแลต่อเนื่อง
+        เราเขียนซอฟต์แวร์ ดูแลเซิร์ฟเวอร์ และหาช่องโหว่ด้วยตัวเอง
+        จึงมองเห็นระบบทั้งเส้นทาง ไม่ใช่แค่ชิ้นที่รับผิดชอบ
       </p>
 
-      <div class="grid cols-3">
-        <div class="card reveal">
+      <div class="next-grid">
+        <a class="card reveal" href="/services/">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+          <h3>รับพัฒนาซอฟต์แวร์</h3>
+          <p>แอป Android, เว็บแอป, ระบบหลังบ้านและ API, ต่อ AI เข้ากับระบบงาน, โมดูล Odoo ERP และการติดตั้งดูแลระบบ</p>
+          <span class="more">ดูบริการทั้งหมด →</span>
+        </a>
+
+        <a class="card reveal" href="/security/">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>ออกแบบระบบให้ปลอดภัย</h3>
+          <p>วางเครือข่าย <span class="nb">โครงสร้างพื้นฐาน</span> และแอปตามแนวคิด Security by Design พร้อมออกแบบการจัดการข้อมูลส่วนบุคคลให้สอดคล้อง PDPA</p>
+          <span class="more">ดูรายละเอียด →</span>
+        </a>
+
+        <a class="card reveal" href="/security/#pentest">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M11 8v3M11 14h.01"/></svg></div>
+          <h3>ทดสอบเจาะระบบ</h3>
+          <p>ทดสอบช่องโหว่เว็บแอปพลิเคชัน API และแอปมือถือ ตามกรอบ OWASP พร้อมรายงานที่แก้ตามได้จริงและการทดสอบซ้ำ</p>
+          <span class="more">ดูขอบเขตการทดสอบ →</span>
+        </a>
+
+        <a class="card reveal" href="/products/">
           <div class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
-          <h3>แอปมือถือ Android</h3>
-          <p>พัฒนาแอปตั้งแต่ศูนย์ ปรับปรุงแอปเดิม จนถึงขั้นตอนเผยแพร่ขึ้น Google Play</p>
-        </div>
+          <h3>แอปที่เราพัฒนาเอง</h3>
+          <p>DooVNow, วัดที่ และ DooNang+ — ทำเองตั้งแต่ออกแบบ เขียน ทดสอบ จนถึงยื่นขึ้น Google Play</p>
+          <span class="more">ดูแอปของเรา →</span>
+        </a>
 
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
-          <h3>เว็บแอปพลิเคชัน</h3>
-          <p>เว็บระบบภายใน แดชบอร์ด และหน้าเว็บสำหรับลูกค้า ใช้งานได้ดีทั้งบนมือถือและเดสก์ท็อป</p>
-        </div>
+        <a class="card reveal" href="/work/">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></div>
+          <h3>ผลงานที่ใช้งานจริง</h3>
+          <p>ระบบซิงค์ข้อมูลสาขา → สำนักงานใหญ่บน Odoo และ DevTrack ระบบบริหารงานพัฒนาที่เราใช้เอง</p>
+          <span class="more">ดูผลงาน →</span>
+        </a>
 
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></div>
-          <h3>ระบบหลังบ้าน &amp; API</h3>
-          <p>ออกแบบฐานข้อมูล เขียน API และเชื่อมต่อระบบที่มีอยู่เดิมให้คุยกันได้</p>
-        </div>
-
-        <div class="card reveal">
+        <a class="card reveal" href="/services/#ai">
           <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 13h.01M15 13h.01M2 12h2M20 12h2"/></svg></div>
           <h3>ต่อ AI เข้ากับระบบงาน</h3>
-          <p>เชื่อม LLM เข้ากับข้อมูลขององค์กรด้วย RAG และ MCP คุมต้นทุน ตรวจสอบย้อนหลังได้ และกันข้อมูลส่วนบุคคลตาม PDPA</p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></div>
-          <h3>Odoo ERP &amp; ระบบธุรกิจ</h3>
-          <p>พัฒนาโมดูลเฉพาะทาง ปรับกระบวนการให้ตรงกับการทำงานจริง และเชื่อมข้อมูลข้ามระบบ</p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
-          <h3>ตรวจสอบความปลอดภัย</h3>
-          <p>ตรวจแอปและระบบหลังบ้านหาช่องโหว่ พร้อมทำ hardening ให้เซิร์ฟเวอร์และเครือข่าย</p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
-          <h3>ติดตั้งและดูแลระบบ</h3>
-          <p>วางระบบด้วย Docker ตั้งค่าเซิร์ฟเวอร์ สำรองข้อมูล และดูแลต่อหลังส่งมอบ</p>
-        </div>
+          <p>เชื่อม LLM เข้ากับข้อมูลองค์กรด้วย RAG และ MCP คุมต้นทุน ตรวจสอบย้อนหลังได้ และกันข้อมูลส่วนบุคคลก่อนส่งออก</p>
+          <span class="more">ดูรายละเอียด →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ WORK ============ -->
-  <section id="work" class="alt">
+  <!-- ============ WHY US ============ -->
+  <section>
     <div class="wrap">
-      <p class="eyebrow">ผลงาน</p>
-      <h2>ระบบที่เราสร้างให้ลูกค้า และที่เราใช้เองจริง</h2>
-      <p class="sec-lede">
-        งานที่ไม่ได้จบแค่หน้าจอสวย — ทั้งสองระบบนี้ทำงานอยู่จริง มีคนใช้ทุกวัน
-        และต้องรับมือกับข้อมูลที่ส่งพลาด งานที่ค้าง และการตามแก้เมื่อมีอะไรผิดพลาด
+      <p class="eyebrow">ทำไมต้องเรา</p>
+      <h2>คนออกแบบ คนเขียน และคนหา<span class="nb">ช่องโหว่</span> คือทีมเดียวกัน</h2>
+      <p class="sec-lede tight">
+        ระบบส่วนใหญ่ไม่ได้พังเพราะโค้ดชิ้นใดชิ้นหนึ่ง แต่พังตรงรอยต่อ —
+        ระหว่างแอปกับ API ระหว่าง API กับฐานข้อมูล ระหว่างเซิร์ฟเวอร์กับเครือข่าย เราดูทั้งเส้น
       </p>
 
-      <article class="case">
-      <h3 class="case-title">ระบบซิงค์ข้อมูลสาขา → สำนักงานใหญ่ บน Odoo</h3>
-      <p class="case-sub">
-        องค์กรที่มีสาขาจำนวนมาก โดยสาขาใช้ Odoo Community ส่วนสำนักงานใหญ่ใช้ Odoo Enterprise
-        เราพัฒนาโมดูลสองฝั่งให้ส่งข้อมูลหากันผ่าน REST API พร้อมระบบคิว การลองใหม่ และหน้าจอติดตามสถานะ
-      </p>
-
-      <div class="work-grid">
-        <ul class="feat">
-          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>ซิงค์ทั้ง <strong>ผู้ติดต่อ/ผู้ขาย สินค้าและหน่วยนับ ใบสั่งซื้อ เอกสารบัญชี การเคลื่อนย้ายสินค้า (รับ/เบิก/โอน) และพนักงาน</strong></span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>คิวงานประมวลผลแยก channel นับจำนวนครั้งที่ลองใหม่ และ<strong>เลื่อนงานที่ยังรอข้อมูลต้นทาง</strong>ไว้ก่อนแทนที่จะปล่อยให้ล้มเหลว</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>หน้า <strong>สุขภาพสาขา</strong> บอกทันทีว่าสาขาไหนซิงค์ล่าสุดเมื่อไหร่ ค้างหรือล้มเหลวกี่รายการ</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>ฝั่งสาขามีบันทึกการซิงค์<strong>รายรายการ</strong> เห็นสถานะและข้อผิดพลาดของแต่ละเอกสาร พร้อมหน้าสรุปแยกตามประเภทข้อมูล</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>จัดการ API key สำหรับการเชื่อมต่อ และมีรายการรอแก้ไขให้ตามเก็บงานที่ตกหล่น</span></li>
-        </ul>
-      </div>
-
-      <div class="shots">
-        <figure class="shot-card reveal">
-          <img src="assets/work/hq-branch-health.webp" width="1200" height="582" loading="lazy" alt="หน้าสุขภาพสาขาฝั่งสำนักงานใหญ่ แสดงสถานะและเวลาซิงค์ล่าสุดของแต่ละสาขา">
-          <figcaption>สำนักงานใหญ่ — สุขภาพสาขา: สถานะ เวลาซิงค์ล่าสุด และจำนวนงานค้าง/ล้มเหลวรายสาขา</figcaption>
-        </figure>
-        <figure class="shot-card reveal">
-          <img src="assets/work/branch-status-summary.webp" width="1200" height="582" loading="lazy" alt="หน้าสรุปสถานะการซิงค์จากสาขาไปสำนักงานใหญ่ แยกตามประเภทข้อมูล">
-          <figcaption>สาขา — สรุปสถานะการซิงค์แยกตามประเภทข้อมูล: ส่งแล้ว สำเร็จ กำลังส่ง ล้มเหลว ข้าม</figcaption>
-        </figure>
-        <figure class="shot-card reveal">
-          <img src="assets/work/hq-sync-inbox.webp" width="1200" height="582" loading="lazy" alt="หน้ากล่องรับข้อมูลซิงค์ฝั่งสำนักงานใหญ่">
-          <figcaption>สำนักงานใหญ่ — กล่องรับข้อมูล: ประเภทข้อมูล สถานะ จำนวนครั้งที่ลองใหม่ และเวลาที่ประมวลผล</figcaption>
-        </figure>
-        <figure class="shot-card reveal">
-          <img src="assets/work/branch-sync-log.webp" width="1200" height="582" loading="lazy" alt="บันทึกการซิงค์รายรายการฝั่งสาขา">
-          <figcaption>สาขา — บันทึกการซิงค์รายรายการ ระบุโมเดล เลขที่เอกสาร สถานะ และข้อผิดพลาด</figcaption>
-        </figure>
-        <figure class="shot-card reveal">
-          <img src="assets/work/hq-job-queue.webp" width="1200" height="582" loading="lazy" alt="คิวงานประมวลผลฝั่งสำนักงานใหญ่ แสดงเวลาที่ใช้ประมวลผลของแต่ละงาน">
-          <figcaption>สำนักงานใหญ่ — คิวงานประมวลผล พร้อมเวลาที่ใช้จริงของแต่ละงาน</figcaption>
-        </figure>
-      </div>
-      </article>
-
-      <article class="case">
-        <h3 class="case-title">DevTrack — ระบบบริหารงานพัฒนาซอฟต์แวร์</h3>
-        <p class="case-sub">
-          ระบบที่เราสร้างขึ้นใช้บริหารงานพัฒนาของตัวเอง รวมการวางแผน ติดตามงาน เก็บความรู้
-          และเครื่องมือ AI ไว้ในที่เดียว ใช้งานได้ทั้งภาษาไทยและอังกฤษ
-        </p>
-
-        <div class="work-grid">
-          <ul class="feat">
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>วางแผนและติดตามงาน</strong> — เป้าหมายและผลลัพธ์ (OKR), คัมบัง, แผนภูมิแกนต์, ปฏิทิน, การประชุม, ความต้องการของระบบ และภาระงานรายคน</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>คลังความรู้ในตัว</strong> — เอกสาร โน้ต บุ๊กมาร์ก รีไมนเดอร์ และงานตามกำหนดเวลา</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ระบบเรียนรู้ของทีม</strong> — คอร์สเรียนและการฝึกอบรม พร้อมรายงานความคืบหน้า</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>เครื่องมือ AI ที่ควบคุมได้</strong> — ต่อ MCP Servers และ Agent Tools, ค้นหาเว็บ, Embedding และ RAG พร้อม<strong>กันข้อมูลส่วนบุคคลตาม PDPA ก่อนส่งออกไปหาโมเดล</strong> และดูประวัติกับต้นทุนการใช้งานได้ทุกคำขอ</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>งานผู้ดูแลระบบ</strong> — จัดการผู้ใช้ ตั้งค่าอีเมล เข้าสู่ระบบด้วย Google และการเชื่อมต่อกับบริการอื่น</span></li>
-          </ul>
-        </div>
-
-        <div class="shots">
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-dashboard.webp" width="1200" height="583" loading="lazy" alt="แดชบอร์ดของ DevTrack แสดงจำนวนโครงการ งาน และคำขอที่รอดำเนินการ">
-            <figcaption>แดชบอร์ด — สรุปโครงการที่ใช้งาน งานคงค้าง คำขอที่รอดำเนินการ และความคืบหน้า OKR</figcaption>
-          </figure>
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-okr.webp" width="1200" height="722" loading="lazy" alt="หน้าเป้าหมายและผลลัพธ์ แสดงความคืบหน้าของแต่ละเป้าหมาย">
-            <figcaption>เป้าหมายและผลลัพธ์ (OKR) — ผูกผลลัพธ์ที่วัดได้เข้ากับเป้าหมาย และเห็นความคืบหน้าเฉลี่ยทันที</figcaption>
-          </figure>
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-kanban.webp" width="1200" height="583" loading="lazy" alt="กระดานคัมบังแบ่งตามสถานะของงาน">
-            <figcaption>คัมบังบอร์ด — ลากงานข้ามสถานะ พร้อมระดับความสำคัญและกำหนดส่ง</figcaption>
-          </figure>
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-workload.webp" width="1200" height="722" loading="lazy" alt="หน้าภาระงานทีม แสดงการกระจายงานของสมาชิกแต่ละคน">
-            <figcaption>ภาระงานทีม — เห็นว่างานกระจุกอยู่ที่ใคร ก่อนที่งานจะดีเลย์</figcaption>
-          </figure>
-        </div>
-
-        <h4 class="case-sub-title">ฝั่ง AI ของระบบ</h4>
-        <p class="case-sub">
-          เรารับงานที่ต้องต่อ AI เข้ากับระบบธุรกิจจริง — ไม่ใช่แค่แปะแชตบอต
-          แต่รวมถึงการคุมค่าใช้จ่าย ตรวจสอบย้อนหลังได้ และกันข้อมูลส่วนบุคคลไม่ให้หลุดออกไปกับคำขอ
-        </p>
-
-        <div class="shots">
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-ai-guardrails.webp" width="1200" height="583" loading="lazy" alt="หน้า AI Guardrails แสดงกฎ PDPA สำหรับบล็อกและปิดบังข้อมูลส่วนบุคคล">
-            <figcaption>AI Guardrails — กฎ PDPA ในตัวสำหรับ<strong>เลขบัตรประชาชน อีเมล เบอร์โทร และชื่อบุคคล</strong> เลือกได้ว่าจะบล็อกหรือปิดบังก่อนส่งให้โมเดล พร้อมโหมดแทนชื่อผู้ใช้ด้วย token แล้วแปลงกลับในคำตอบ</figcaption>
-          </figure>
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-ai-cost.webp" width="1200" height="583" loading="lazy" alt="แดชบอร์ดต้นทุน AI แสดงค่าใช้จ่ายประมาณการรายเดือนและจำนวน token">
-            <figcaption>ต้นทุน AI — ประมาณค่าใช้จ่ายจาก token × ราคาจริงของแต่ละโมเดล แปลงเป็นเงินบาทตามอัตราแลกเปลี่ยน แยกดูตามโมเดลและตามผู้ใช้ได้</figcaption>
-          </figure>
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-ai-usage.webp" width="1200" height="583" loading="lazy" alt="หน้าประวัติการใช้ AI แสดงจำนวนครั้ง โมเดลที่ใช้ และจำนวน token">
-            <figcaption>ประวัติการใช้ AI — เก็บทุกคำขอย้อนหลัง แยกตามโมเดลและสถานะ พร้อมจำนวน token เข้า-ออกและเวลาตอบสนอง</figcaption>
-          </figure>
-          <figure class="shot-card reveal">
-            <img src="assets/work/devtrack-mcp.webp" width="1200" height="583" loading="lazy" alt="หน้าจัดการ MCP Servers แสดงเซิร์ฟเวอร์ที่เชื่อมต่อและจำนวนเครื่องมือ">
-            <figcaption>MCP Servers — ต่อเครื่องมือภายนอกเข้ากับผู้ช่วย AI เปิด/ปิดรายตัวได้ และเห็นว่าแต่ละเซิร์ฟเวอร์ให้เครื่องมือมากี่ตัว</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <p class="note" style="margin-top:26px">
-        ภาพทั้งหมดปิดข้อมูลที่ระบุตัวตนออกแล้ว — ชื่อบริษัท ชื่อสาขาจริง ชื่อบุคคล รูปโปรไฟล์
-        อีเมล ชื่อโครงการ และที่อยู่ปลายทางของ API ถูกแทนด้วยข้อมูลตัวอย่างทั้งหมด
-      </p>
+      <ul class="feat two-col">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ทำแอปของตัวเองจนขึ้นสโตร์</strong> — รู้ปัญหาจริงตั้งแต่ออกแบบ ทดสอบ จนถึงการตรวจของ Google Play</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ดูแลเซิร์ฟเวอร์และเครือข่ายจริง</strong> — Docker, ไฟร์วอลล์, VPN, การ hardening และการสำรองข้อมูล</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ถอดแอปเพื่อหาช่องโหว่เป็นงานประจำ</strong> — จึงรู้ว่าอะไรที่ผู้โจมตีเห็นได้จากไฟล์ที่คุณปล่อยขึ้นสโตร์</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>PDPA เป็นส่วนหนึ่งของการออกแบบ</strong> — ไม่ใช่เอกสารที่มาแปะทีหลังตอนตรวจ</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>ส่งมอบซอร์สโค้ด</strong> — ระบบเป็นของคุณ ไม่ผูกไว้กับเรา</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>สื่อสารเป็นภาษาคน</strong> — รายงานและข้อเสนอเขียนให้ผู้บริหารอ่านรู้เรื่อง ไม่ใช่ทิ้งผลสแกนดิบ</span></li>
+      </ul>
     </div>
   </section>
 
@@ -600,7 +152,7 @@
   <section class="alt">
     <div class="wrap">
       <p class="eyebrow">ขั้นตอนการทำงาน</p>
-      <h2>เริ่มต้นง่าย ไม่มีค่าใช้จ่ายจนกว่าจะตกลงกัน</h2>
+      <h2>เริ่มต้นง่าย ไม่มี<span class="nb">ค่าใช้จ่าย</span>จนกว่าจะตกลงกัน</h2>
       <p class="sec-lede">คุยความต้องการก่อนเสมอ แล้วค่อยเสนอขอบเขตงานและราคาเป็นลายลักษณ์อักษร</p>
 
       <div class="steps">
@@ -637,8 +189,8 @@
             <p class="mail-label">งานพัฒนาซอฟต์แวร์ / ติดต่อธุรกิจ</p>
             <button class="mail-box js-mail" data-k="work" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อติดต่อเรื่องงานพัฒนาซอฟต์แวร์">
               <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-              <img class="mail-img on-light" src="assets/contact-work-light.png" width="361" height="23" alt="อีเมลสำหรับติดต่องาน แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
-              <img class="mail-img on-dark" src="assets/contact-work-dark.png" width="361" height="23" alt="">
+              <img class="mail-img on-light" src="/assets/contact-work-light.png" width="361" height="23" alt="อีเมลสำหรับติดต่องาน แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
+              <img class="mail-img on-dark" src="/assets/contact-work-dark.png" width="361" height="23" alt="">
             </button>
             <button class="btn btn-ghost btn-sm js-copy" data-k="work" type="button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
@@ -650,8 +202,8 @@
             <p class="mail-label">สอบถามเรื่องแอปของเรา</p>
             <button class="mail-box js-mail" data-k="apps" type="button" aria-label="เปิดโปรแกรมอีเมลเพื่อสอบถามเรื่องแอป">
               <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-              <img class="mail-img on-light" src="assets/contact-apps-light.png" width="239" height="23" alt="อีเมลสำหรับสอบถามเรื่องแอป แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
-              <img class="mail-img on-dark" src="assets/contact-apps-dark.png" width="239" height="23" alt="">
+              <img class="mail-img on-light" src="/assets/contact-apps-light.png" width="239" height="23" alt="อีเมลสำหรับสอบถามเรื่องแอป แสดงเป็นรูปภาพเพื่อป้องกันบอทเก็บข้อมูล">
+              <img class="mail-img on-dark" src="/assets/contact-apps-dark.png" width="239" height="23" alt="">
             </button>
             <button class="btn btn-ghost btn-sm js-copy" data-k="apps" type="button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
@@ -671,6 +223,10 @@
 <footer>
   <div class="wrap foot">
     <span>© <span id="year">2026</span> Netsoft Expert Studio</span>
+    <a href="/products/">ผลิตภัณฑ์</a>
+    <a href="/services/">บริการ</a>
+    <a href="/security/">ความปลอดภัย</a>
+    <a href="/work/">ผลงาน</a>
     <span class="spacer"></span>
     <a href="https://netsoft-expert.com/doovnow-privacy/">นโยบายความเป็นส่วนตัว DooVNow</a>
     <a href="https://github.com/burachai-x">GitHub</a>
@@ -678,70 +234,7 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // The address never appears in the markup — assembled here so scrapers that
-  // don't run scripts have nothing to harvest.
-  const CONTACTS = {
-    work: { b: 'YnVyYWNoYWkucEBuZXRzb2Z0LWV4cGVydC5jb20=', s: 'สอบถามงานพัฒนาซอฟต์แวร์' },
-    apps: { b: 'cm9rb21hbkBnbWFpbC5jb20=',                 s: 'สอบถามเกี่ยวกับแอป' }
-  };
-  const addrOf = k => atob((CONTACTS[k] || CONTACTS.work).b);
-
-  document.querySelectorAll('.js-mail').forEach(el => {
-    el.addEventListener('click', () => {
-      const k = el.dataset.k || 'work';
-      window.location.href = 'mailto:' + addrOf(k) +
-        '?subject=' + encodeURIComponent(CONTACTS[k].s);
-    });
-  });
-
-  // execCommand still covers the cases the async clipboard API refuses
-  function legacyCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
-    document.body.appendChild(ta);
-    ta.select();
-    let ok = false;
-    try { ok = document.execCommand('copy'); } catch { ok = false; }
-    ta.remove();
-    return ok;
-  }
-
-  const status = document.querySelector('.copied');
-  document.querySelectorAll('.js-copy').forEach(el => {
-    el.addEventListener('click', async () => {
-      const addr = addrOf(el.dataset.k);
-      let ok = false;
-      try {
-        await navigator.clipboard.writeText(addr);
-        ok = true;
-      } catch {
-        ok = legacyCopy(addr);
-      }
-      status.textContent = ok ? 'คัดลอกอีเมลแล้ว' : 'คัดลอกไม่สำเร็จ — กดปุ่มอีเมลด้านบนแทนได้';
-      setTimeout(() => { status.textContent = ''; }, 4000);
-    });
-  });
-
-  const items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (!e.isIntersecting) return;
-        e.target.style.transitionDelay = Math.min(i * 35, 175) + 'ms';
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px 5% 0px' });
-    items.forEach(el => io.observe(el));
-  } else {
-    items.forEach(el => el.classList.add('in'));
-  }
-</script>
+<script src="/assets/site.js"></script>
 
 </body>
 </html>
