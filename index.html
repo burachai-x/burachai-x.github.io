@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Netsoft Expert Studio — DooVNow &amp; รับพัฒนาซอฟต์แวร์</title>
+<meta name="description" content="DooVNow แอปดูวิดีโอ YouTube ที่ไม่มีโฆษณาและไม่ติดตามข้อมูลคุณ พร้อมบริการรับพัฒนาซอฟต์แวร์ตามความต้องการ โดย Netsoft Expert Studio">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Netsoft Expert Studio — DooVNow &amp; รับพัฒนาซอฟต์แวร์">
+<meta property="og:description" content="DooVNow แอปดูวิดีโอ YouTube ที่ไม่เก็บข้อมูลคุณ · รับพัฒนาแอป เว็บ ระบบหลังบ้าน และงาน ERP/ความปลอดภัย">
+<meta property="og:url" content="https://burachai-x.github.io/">
+<meta name="theme-color" content="#4f46e5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    color-scheme: light dark;
+    --bg:        #ffffff;
+    --bg-soft:   #f6f7fb;
+    --card:      #ffffff;
+    --border:    #e4e6ef;
+    --text:      #14161f;
+    --muted:     #5b6076;
+    --brand:     #4f46e5;
+    --brand-2:   #06b6d4;
+    --brand-ink: #ffffff;
+    --shadow:    0 1px 2px rgba(16,18,32,.05), 0 12px 32px -12px rgba(16,18,32,.16);
+    --radius:    16px;
+    --maxw:      1080px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:      #0c0d13;
+      --bg-soft: #12141d;
+      --card:    #161824;
+      --border:  #272a3a;
+      --text:    #e9eaf2;
+      --muted:   #9ba1b8;
+      --brand:   #7c7bff;
+      --brand-2: #22d3ee;
+      --shadow:  0 1px 2px rgba(0,0,0,.4), 0 16px 40px -16px rgba(0,0,0,.7);
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    font-family: "IBM Plex Sans Thai", "IBM Plex Sans", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--brand); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; gap: 20px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; color: var(--text); letter-spacing: -.01em; }
+  .brand .mark {
+    width: 30px; height: 30px; border-radius: 9px; flex: none;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    display: grid; place-items: center;
+  }
+  .brand .mark svg { width: 15px; height: 15px; fill: #fff; }
+  .nav .spacer { margin-inline-start: auto; }
+  .nav a.link { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
+  .nav a.link:hover { color: var(--text); }
+  @media (max-width: 720px) { .nav a.link.hide-sm { display: none; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px; border-radius: 11px;
+    font-weight: 600; font-size: .95rem; text-decoration: none;
+    border: 1px solid transparent; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--brand); color: var(--brand-ink); box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--brand) 70%, transparent); }
+  .btn-primary:hover { background: color-mix(in srgb, var(--brand) 88%, #000); }
+  .btn-ghost { background: var(--card); color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: color-mix(in srgb, var(--brand) 50%, var(--border)); }
+  .btn svg { width: 17px; height: 17px; flex: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding: 84px 0 72px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -40% 0 auto 0; height: 620px; z-index: -1;
+    background:
+      radial-gradient(560px 300px at 20% 42%, color-mix(in srgb, var(--brand) 22%, transparent), transparent 70%),
+      radial-gradient(520px 300px at 78% 30%, color-mix(in srgb, var(--brand-2) 18%, transparent), transparent 70%);
+    filter: blur(6px);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 44px; } .hero { padding: 56px 0 52px; } }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 13px 6px 10px; border-radius: 999px;
+    background: color-mix(in srgb, var(--brand) 10%, var(--card));
+    border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--border));
+    color: color-mix(in srgb, var(--brand) 78%, var(--text));
+    font-size: .84rem; font-weight: 600;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand-2); flex: none;
+         box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-2) 22%, transparent); }
+
+  h1 {
+    font-size: clamp(2.05rem, 5.2vw, 3.1rem);
+    line-height: 1.24; letter-spacing: -.02em; font-weight: 700;
+    margin: 20px 0 16px;
+  }
+  h1 .grad {
+    background: linear-gradient(100deg, var(--brand), var(--brand-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { font-size: 1.08rem; color: var(--muted); max-width: 46ch; margin: 0 0 28px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .cta-note { margin-top: 14px; font-size: .87rem; color: var(--muted); }
+
+  /* ---------- Phone mock ---------- */
+  .phone-stage { display: grid; place-items: center; }
+  .phone {
+    width: 250px; aspect-ratio: 9 / 18.5;
+    border-radius: 34px; padding: 9px;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--brand) 55%, #1b1c28), #14151f);
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .phone-screen {
+    width: 100%; height: 100%; border-radius: 26px; overflow: hidden;
+    background: #0e0f16; display: flex; flex-direction: column; gap: 9px; padding: 26px 12px 12px;
+  }
+  .phone::after {
+    content: ""; position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
+    width: 66px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.22);
+  }
+  .thumb { border-radius: 9px; background: linear-gradient(120deg, rgba(255,255,255,.11), rgba(255,255,255,.045)); position: relative; }
+  .thumb.big { aspect-ratio: 16/9; display: grid; place-items: center; }
+  .thumb.big::after {
+    content: ""; width: 0; height: 0; margin-left: 4px;
+    border-left: 17px solid rgba(255,255,255,.85);
+    border-top: 11px solid transparent; border-bottom: 11px solid transparent;
+  }
+  .row { display: flex; gap: 9px; align-items: center; }
+  .row .thumb { width: 74px; aspect-ratio: 16/9; flex: none; }
+  .lines { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .line { height: 7px; border-radius: 4px; background: rgba(255,255,255,.13); }
+  .line.short { width: 55%; background: rgba(255,255,255,.08); }
+  .phone-tag {
+    margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: .68rem; color: rgba(255,255,255,.55); padding-top: 8px;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 76px 0; }
+  section.alt { background: var(--bg-soft); border-block: 1px solid var(--border); }
+  @media (max-width: 880px) { section { padding: 56px 0; } }
+
+  .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--brand); margin: 0 0 10px; }
+  h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.3; letter-spacing: -.015em; margin: 0 0 14px; font-weight: 700; }
+  .sec-lede { color: var(--muted); max-width: 62ch; margin: 0 0 42px; }
+
+  .grid { display: grid; gap: 18px; }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 900px) { .cols-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .cols-3, .cols-2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { border-color: color-mix(in srgb, var(--brand) 42%, var(--border)); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .card h3 { margin: 0 0 8px; font-size: 1.06rem; font-weight: 600; letter-spacing: -.01em; }
+  .card p  { margin: 0; color: var(--muted); font-size: .95rem; }
+  .icon {
+    width: 40px; height: 40px; border-radius: 11px; margin-bottom: 15px;
+    display: grid; place-items: center;
+    background: color-mix(in srgb, var(--brand) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+  }
+  .icon svg { width: 20px; height: 20px; stroke: var(--brand); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Steps ---------- */
+  .steps { counter-reset: step; display: grid; gap: 14px; grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .step { position: relative; padding: 22px 20px 20px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+  .step::before {
+    counter-increment: step; content: counter(step);
+    display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff;
+    font-weight: 700; font-size: .85rem; margin-bottom: 12px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 1rem; font-weight: 600; }
+  .step p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+  /* ---------- Contact ---------- */
+  .contact-card {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 13%, var(--card)), color-mix(in srgb, var(--brand-2) 9%, var(--card)));
+    border: 1px solid color-mix(in srgb, var(--brand) 26%, var(--border));
+    border-radius: 22px; padding: 46px 38px; text-align: center;
+  }
+  @media (max-width: 620px) { .contact-card { padding: 34px 22px; } }
+  .contact-card h2 { margin-bottom: 10px; }
+  .contact-card p { color: var(--muted); max-width: 52ch; margin: 0 auto 26px; }
+  .mail-big {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: clamp(1.05rem, 3vw, 1.35rem); font-weight: 600;
+    text-decoration: none; color: var(--text);
+    padding: 14px 24px; border-radius: 13px;
+    background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow);
+    transition: border-color .18s ease, transform .18s ease;
+    word-break: break-all;
+  }
+  .mail-big:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .mail-big svg { width: 21px; height: 21px; stroke: var(--brand); fill: none; stroke-width: 1.8; flex: none; }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--border); padding: 34px 0; color: var(--muted); font-size: .9rem; }
+  .foot { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; }
+  .foot .spacer { margin-inline-start: auto; }
+  .foot a { color: var(--muted); text-decoration: none; }
+  .foot a:hover { color: var(--brand); }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="mark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      Netsoft Expert Studio
+    </a>
+    <span class="spacer"></span>
+    <a class="link hide-sm" href="#doovnow">DooVNow</a>
+    <a class="link hide-sm" href="#services">บริการ</a>
+    <a class="btn btn-primary" href="#contact">ติดต่อเรา</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span> กำลังรอ Google ตรวจสอบ — เร็วๆ นี้บน Google Play</span>
+        <h1>ดูวิดีโอได้เต็มที่<br><span class="grad">โดยไม่ต้องยกข้อมูลให้ใคร</span></h1>
+        <p class="lede">
+          <strong>DooVNow</strong> คือแอปสำหรับรับชมวิดีโอ YouTube บน Android
+          ที่ออกแบบมาให้เบา เรียบง่าย และ<strong>ไม่มี SDK โฆษณา ไม่มีตัวติดตาม ไม่มีการเก็บสถิติผู้ใช้</strong>
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:rokoman@gmail.com?subject=แจ้งเตือนเมื่อ%20DooVNow%20เปิดตัวบน%20Google%20Play&body=สนใจให้แจ้งเตือนเมื่อ DooVNow พร้อมดาวน์โหลดครับ/ค่ะ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            แจ้งเตือนฉันตอนเปิดตัว
+          </a>
+          <a class="btn btn-ghost" href="https://burachai-x.github.io/doovnow-privacy/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            อ่านนโยบายความเป็นส่วนตัว
+          </a>
+        </div>
+        <p class="cta-note">ส่งอีเมลถึงเราแล้วเราจะแจ้งกลับทันทีที่แอปขึ้น Google Play</p>
+      </div>
+
+      <div class="phone-stage">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="thumb big"></div>
+            <div class="row"><div class="thumb"></div><div class="lines"><div class="line"></div><div class="line short"></div></div></div>
+            <div class="row"><div class="thumb"></div><div class="lines"><div class="line"></div><div class="line short"></div></div></div>
+            <div class="row"><div class="thumb"></div><div class="lines"><div class="line"></div><div class="line short"></div></div></div>
+            <div class="phone-tag">● ไม่มีโฆษณา · ไม่มีตัวติดตาม</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DOOVNOW ============ -->
+  <section id="doovnow" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">ผลิตภัณฑ์ของเรา</p>
+      <h2>DooVNow — แอปดูวิดีโอที่เคารพความเป็นส่วนตัว</h2>
+      <p class="sec-lede">
+        ทุกข้อด้านล่างนี้ระบุไว้ตรงกับนโยบายความเป็นส่วนตัวของแอปที่เผยแพร่จริง ตรวจสอบได้ทุกข้อ
+      </p>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M18.36 6.64A9 9 0 1 1 5.64 19.36"/><path d="M3 3l18 18"/></svg></div>
+          <h3>ไม่มีโฆษณา ไม่มีตัวติดตาม</h3>
+          <p>แอปไม่ฝัง SDK โฆษณา วิเคราะห์พฤติกรรม การติดตาม หรือรายงานข้อขัดข้องใดๆ ทั้งสิ้น</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>ล็อกอินแล้วโทเคนอยู่ในเครื่อง</h3>
+          <p>ลงชื่อเข้าใช้เพื่อดูช่องที่ติดตามได้ โดยโทเคนถูกเก็บไว้บนอุปกรณ์ของคุณเท่านั้น ไม่ถูกส่งไปเซิร์ฟเวอร์ของเรา และเราไม่เห็นรหัสผ่านคุณ</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <h3>เล่นต่อเนื่อง คุมจากแถบแจ้งเตือน</h3>
+          <p>รองรับการเล่นสื่อแบบ foreground service พร้อมปุ่มควบคุมบนการแจ้งเตือน ฟังต่อได้ไม่สะดุด</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>ขอสิทธิ์เท่าที่จำเป็นจริงๆ</h3>
+          <p>ขอแค่อินเทอร์เน็ต การเล่นสื่อ และการแจ้งเตือน — <strong>ไม่ขอ</strong>ตำแหน่งที่ตั้ง กล้อง ไมโครโฟน รายชื่อผู้ติดต่อ หรือไฟล์ส่วนตัว</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5M14 11v5"/></svg></div>
+          <h3>ลบข้อมูลได้ด้วยตัวเอง</h3>
+          <p>ออกจากระบบหรือถอนการติดตั้ง ข้อมูลที่เก็บในเครื่องทั้งหมดหายไปทันที ไม่มีอะไรค้างอยู่ที่ไหน</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+          <h3>ไม่ขาย ไม่แชร์ข้อมูล</h3>
+          <p>เราไม่ขาย ไม่ให้เช่า และไม่แบ่งปันข้อมูลของคุณกับบุคคลที่สาม การเชื่อมต่อเกิดขึ้นตรงระหว่างเครื่องคุณกับ Google/YouTube</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">บริการ</p>
+      <h2>รับพัฒนาซอฟต์แวร์ตามความต้องการ</h2>
+      <p class="sec-lede">
+        นอกจากผลิตภัณฑ์ของเราเอง เรารับงานพัฒนาซอฟต์แวร์ให้องค์กรและธุรกิจ
+        ตั้งแต่ออกแบบระบบ เขียนโค้ด ไปจนถึงติดตั้งบนเซิร์ฟเวอร์จริงและดูแลต่อเนื่อง
+      </p>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+          <h3>แอปมือถือ Android</h3>
+          <p>พัฒนาแอปตั้งแต่ศูนย์ ปรับปรุงแอปเดิม จนถึงขั้นตอนเผยแพร่ขึ้น Google Play</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+          <h3>เว็บแอปพลิเคชัน</h3>
+          <p>เว็บระบบภายใน แดชบอร์ด และหน้าเว็บสำหรับลูกค้า ใช้งานได้ดีทั้งบนมือถือและเดสก์ท็อป</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></div>
+          <h3>ระบบหลังบ้าน &amp; API</h3>
+          <p>ออกแบบฐานข้อมูล เขียน API และเชื่อมต่อระบบที่มีอยู่เดิมให้คุยกันได้</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></div>
+          <h3>Odoo ERP &amp; ระบบธุรกิจ</h3>
+          <p>พัฒนาโมดูลเฉพาะทาง ปรับกระบวนการให้ตรงกับการทำงานจริง และเชื่อมข้อมูลข้ามระบบ</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+          <h3>ตรวจสอบความปลอดภัย</h3>
+          <p>ตรวจแอปและระบบหลังบ้านหาช่องโหว่ พร้อมทำ hardening ให้เซิร์ฟเวอร์และเครือข่าย</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
+          <h3>ติดตั้งและดูแลระบบ</h3>
+          <p>วางระบบด้วย Docker ตั้งค่าเซิร์ฟเวอร์ สำรองข้อมูล และดูแลต่อหลังส่งมอบ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">ขั้นตอนการทำงาน</p>
+      <h2>เริ่มต้นง่าย ไม่มีค่าใช้จ่ายจนกว่าจะตกลงกัน</h2>
+      <p class="sec-lede">คุยความต้องการก่อนเสมอ แล้วค่อยเสนอขอบเขตงานและราคาเป็นลายลักษณ์อักษร</p>
+
+      <div class="steps">
+        <div class="step reveal">
+          <h3>คุยความต้องการ</h3>
+          <p>เล่าปัญหาที่อยากแก้มาได้เลย ยังไม่ต้องมีสเปกละเอียด</p>
+        </div>
+        <div class="step reveal">
+          <h3>เสนอขอบเขต + ราคา</h3>
+          <p>สรุปสิ่งที่จะได้ ระยะเวลา และค่าใช้จ่ายให้ชัดก่อนเริ่มงาน</p>
+        </div>
+        <div class="step reveal">
+          <h3>พัฒนา ส่งงานเป็นรอบ</h3>
+          <p>ทยอยส่งให้ดูและปรับระหว่างทาง ไม่ต้องรอลุ้นตอนจบ</p>
+        </div>
+        <div class="step reveal">
+          <h3>ส่งมอบและดูแลต่อ</h3>
+          <p>ติดตั้งใช้งานจริง ส่งมอบซอร์สโค้ด พร้อมช่วงดูแลหลังส่งมอบ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <p class="eyebrow">ติดต่อ</p>
+        <h2>มีงานอยากให้ช่วย หรืออยากรู้ว่า DooVNow เปิดตัวเมื่อไหร่?</h2>
+        <p>ส่งอีเมลมาคุยได้เลย บอกสั้นๆ ว่าอยากได้อะไร เราจะตอบกลับพร้อมแนวทางและราคาโดยประมาณ</p>
+        <a class="mail-big" href="mailto:rokoman@gmail.com?subject=สอบถามงานพัฒนาซอฟต์แวร์">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          rokoman@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Netsoft Expert Studio</span>
+    <span class="spacer"></span>
+    <a href="https://burachai-x.github.io/doovnow-privacy/">นโยบายความเป็นส่วนตัว DooVNow</a>
+    <a href="https://github.com/burachai-x">GitHub</a>
+    <a href="mailto:rokoman@gmail.com">อีเมล</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (!e.isIntersecting) return;
+        e.target.style.transitionDelay = (i * 55) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    items.forEach(el => io.observe(el));
+  } else {
+    items.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
